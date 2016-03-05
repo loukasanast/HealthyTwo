@@ -1,0 +1,4 @@
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Lib.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Lib.pdb
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\obj\Debug\Lib.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\obj\Debug\Lib.pdb

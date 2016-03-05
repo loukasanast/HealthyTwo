@@ -1,0 +1,16 @@
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\HealthyTwo.exe.config
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\HealthyTwo.exe
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\HealthyTwo.pdb
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo.csprojResolveAssemblyReference.cache
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\MainWindow.g.cs
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\App.g.cs
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo_MarkupCompile.cache
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo_MarkupCompile.lref
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\MainWindow.baml
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo.g.resources
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo.Properties.Resources.resources
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo.csproj.GenerateResource.Cache
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo.exe
+c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo.pdb
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Lib.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Lib.pdb

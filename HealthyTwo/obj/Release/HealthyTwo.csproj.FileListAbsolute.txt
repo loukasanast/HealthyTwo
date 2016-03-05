@@ -1,0 +1,16 @@
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\HealthyTwo.exe.config
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\HealthyTwo.exe
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\HealthyTwo.pdb
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\MainWindow.g.cs
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\App.g.cs
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo_MarkupCompile.cache
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo_MarkupCompile.lref
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\MainWindow.baml
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo.g.resources
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo.Properties.Resources.resources
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo.csproj.GenerateResource.Cache
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo.exe
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo.pdb
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Lib.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Lib.pdb
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo.csprojResolveAssemblyReference.cache

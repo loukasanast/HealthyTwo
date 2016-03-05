@@ -1,0 +1,100 @@
+﻿<Window x:Class="HealthyTwo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthyTwo"
+        mc:Ignorable="d"
+        Title="Healthy Two™" Height="466" Width="800" ResizeMode="CanMinimize" Visibility="Visible" AllowsTransparency="True" WindowStyle="None">
+    <Window.Resources>
+        <Style x:Key="LabelHover">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
+                                <ColorAnimation To="#fff17250" Duration="0:0:0:0.14"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
+                                <ColorAnimation To="White" Duration="0:0:0:0.14"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ImgFadeOut">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetProperty="Opacity">
+                                <DoubleAnimation From="1.0" To="0.0" Duration="0:0:0:0.14"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard Storyboard.TargetProperty="Opacity">
+                                <DoubleAnimation From="0.0" To="1.0" Duration="0:0:0:0.14"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="img/bg.png"/>
+    </Window.Background>
+    <Grid x:Name="grdMain">
+        
+        <Image x:Name="imgHomeHover" Source="img/home-hover.png" Width="16" Height="16" Margin="16,28,768,422"  />
+        <Image x:Name="imgHome" Source="img/home.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="16,28,768,422" />
+        <Image x:Name="imgMessageHover" Source="img/message-hover.png" Width="16" Height="16" Margin="40,28,744,422" />
+        <Image x:Name="imgMessage" Source="img/message.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="40,28,744,422" />
+        <Image x:Name="imgEmailHover" Source="img/email-hover.png" Width="16" Height="16" Margin="64,28,720,422" />
+        <Image x:Name="imgEmail" Source="img/email.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="64,28,720,422" />
+        <Image x:Name="imgInstagramHover" Source="img/instagram-hover.png" Width="16" Height="16" Margin="32,432,752,18" />
+        <Image x:Name="imgInstagram" Source="img/instagram.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="32,432,752,18" />
+        <Image x:Name="imgFacebookHover" Source="img/facebook-hover.png" Width="16" Height="16" Margin="56,432,728,18" />
+        <Image x:Name="imgFacebook" Source="img/facebook.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="56,432,728,18" />
+        <Image x:Name="imgUserHover" Source="img/user-hover.png" Width="16" Height="16" Margin="748,36,36,414" />
+        <Image x:Name="imgUser" Source="img/user.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="748,36,36,414" />
+        <Label x:Name="lblAct" Content="ACTIVITIES" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="35,49,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36"/>
+        <Label x:Name="lblDev" Content="DEVICES" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="33,113,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36"/>
+        <Label x:Name="lblPro" Content="PROFILE" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="33,177,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36"/>
+        <Label x:Name="lblSum" Content="SUMMARIES" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="34,241,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36"/>
+        <Label Content="Hello," HorizontalAlignment="Left" Margin="667,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+        <Label x:Name="lblUsername" Content="Loukas" HorizontalAlignment="Left" Margin="696,35,0,0" VerticalAlignment="Top" Foreground="#FF00A6FF" FontFamily="Nobile" FontSize="10"/>
+        <Label Content="!" HorizontalAlignment="Left" Margin="731,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+        <Grid x:Name="grdHome">
+            <Label Content="WELCOME TO" HorizontalAlignment="Left" Margin="258,73,0,0" VerticalAlignment="Top" Foreground="#FFFF192B" FontFamily="Aller Display" FontSize="11"/>
+            <Label Content="HEALTHY TWO™" HorizontalAlignment="Left" Margin="326,73,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="11"/>
+            <Label Content="TRACK YOUR ACTIVITIES" HorizontalAlignment="Left" Margin="275,111,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="24"/>
+            <Label Content="Your activities are divided into easy to review categories" HorizontalAlignment="Left" Margin="275,143,0,0" VerticalAlignment="Top" Foreground="#FF00A6FF" FontFamily="Nobile" FontSize="14"/>
+            <Label Content="ORGANIZE YOUR DEVICES" HorizontalAlignment="Left" Margin="274,175,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="24"/>
+            <Label Content="Use the full capabilities of your favorite devices" HorizontalAlignment="Left" Margin="275,207,0,0" VerticalAlignment="Top" Foreground="#FF00A6FF" FontFamily="Nobile" FontSize="14"/>
+            <Label Content="SHARE YOUR PROFILE" HorizontalAlignment="Left" Margin="273,239,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="24"/>
+            <Label Content="REVIEW YOUR SUMMARIES" HorizontalAlignment="Left" Margin="274,279,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="24"/>
+            <Image Source="img/home-clock.png" Width="40" Height="40" Margin="280,360,480,66" />
+            <Image Source="img/home-calendar.png" Width="40" Height="40" Margin="352,360,408,66" />
+            <Image Source="img/home-tag.png" Width="40" Height="40" Margin="424,360,336,66" />
+            <Image Source="img/home-envelope.png" Width="40" Height="40" Margin="496,360,264,66" />
+            <Image Source="img/bottom-corner.png" Width="8" Height="8" Margin="761,417,31,41" />
+        </Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="24" Stroke="Black" VerticalAlignment="Top" Width="754" StrokeThickness="0" MouseDown="Rectangle_MouseDown" Opacity="0"/>
+        <Image x:Name="imgClose" Source="img/close.png" Width="8" Height="8" Margin="780,12,12,446" MouseDown="imgClose_MouseDown" />
+        <Image x:Name="imgMinimize" Source="img/minimize.png" Width="8" Height="8" Margin="764,12,28,446" MouseDown="imgMinimize_MouseDown" />
+    </Grid>
+</Window>
