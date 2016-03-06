@@ -53,32 +53,42 @@
             </Style.Triggers>
         </Style>
 
+        <Storyboard x:Key="PageFadeOut">
+            <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Storyboard.TargetProperty="Visibility">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
+        </Storyboard>   
+
     </Window.Resources>
     <Window.Background>
-        <ImageBrush ImageSource="img/bg.png"/>
+        <ImageBrush ImageSource="img/HealthyTwoProfile.png"/>
     </Window.Background>
     <Grid x:Name="grdMain">
-        
         <Image x:Name="imgHomeHover" Source="img/home-hover.png" Width="16" Height="16" Margin="16,28,768,422"  />
-        <Image x:Name="imgHome" Source="img/home.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="16,28,768,422" />
+        <Image x:Name="imgHome" Source="img/home.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="16,28,768,422" MouseDown="imgHome_MouseDown" />
         <Image x:Name="imgMessageHover" Source="img/message-hover.png" Width="16" Height="16" Margin="40,28,744,422" />
         <Image x:Name="imgMessage" Source="img/message.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="40,28,744,422" />
         <Image x:Name="imgEmailHover" Source="img/email-hover.png" Width="16" Height="16" Margin="64,28,720,422" />
         <Image x:Name="imgEmail" Source="img/email.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="64,28,720,422" />
         <Image x:Name="imgInstagramHover" Source="img/instagram-hover.png" Width="16" Height="16" Margin="32,432,752,18" />
-        <Image x:Name="imgInstagram" Source="img/instagram.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="32,432,752,18" />
+        <Image x:Name="imgInstagram" Source="img/instagram.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="32,432,752,18" MouseDown="imgInstagram_MouseDown" />
         <Image x:Name="imgFacebookHover" Source="img/facebook-hover.png" Width="16" Height="16" Margin="56,432,728,18" />
-        <Image x:Name="imgFacebook" Source="img/facebook.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="56,432,728,18" />
+        <Image x:Name="imgFacebook" Source="img/facebook.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="56,432,728,18" MouseDown="imgFacebook_MouseDown" />
         <Image x:Name="imgUserHover" Source="img/user-hover.png" Width="16" Height="16" Margin="748,36,36,414" />
         <Image x:Name="imgUser" Source="img/user.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="748,36,36,414" />
-        <Label x:Name="lblAct" Content="ACTIVITIES" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="35,49,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36"/>
-        <Label x:Name="lblDev" Content="DEVICES" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="33,113,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36"/>
-        <Label x:Name="lblPro" Content="PROFILE" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="33,177,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36"/>
-        <Label x:Name="lblSum" Content="SUMMARIES" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="34,241,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36"/>
+        <Label x:Name="lblAct" Content="ACTIVITIES" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="35,49,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36" MouseDown="lblAct_MouseDown"/>
+        <Label x:Name="lblDev" Content="DEVICES" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="33,113,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36" MouseDown="lblDev_MouseDown"/>
+        <Label x:Name="lblPro" Content="PROFILE" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="33,177,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36" MouseDown="lblPro_MouseDown"/>
+        <Label x:Name="lblSum" Content="SUMMARIES" Style="{StaticResource LabelHover}" HorizontalAlignment="Left" Margin="34,241,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="36" MouseDown="lblSum_MouseDown"/>
         <Label Content="Hello," HorizontalAlignment="Left" Margin="667,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
         <Label x:Name="lblUsername" Content="Loukas" HorizontalAlignment="Left" Margin="696,35,0,0" VerticalAlignment="Top" Foreground="#FF00A6FF" FontFamily="Nobile" FontSize="10"/>
         <Label Content="!" HorizontalAlignment="Left" Margin="731,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
-        <Grid x:Name="grdHome">
+        <Grid x:Name="grdHome" Visibility="Hidden" Opacity="0">
             <Label Content="WELCOME TO" HorizontalAlignment="Left" Margin="258,73,0,0" VerticalAlignment="Top" Foreground="#FFFF192B" FontFamily="Aller Display" FontSize="11"/>
             <Label Content="HEALTHY TWO™" HorizontalAlignment="Left" Margin="326,73,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="11"/>
             <Label Content="TRACK YOUR ACTIVITIES" HorizontalAlignment="Left" Margin="275,111,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="24"/>
@@ -92,6 +102,51 @@
             <Image Source="img/home-tag.png" Width="40" Height="40" Margin="424,360,336,66" />
             <Image Source="img/home-envelope.png" Width="40" Height="40" Margin="496,360,264,66" />
             <Image Source="img/bottom-corner.png" Width="8" Height="8" Margin="761,417,31,41" />
+        </Grid>
+        <Grid x:Name="grdActivities" Visibility="Hidden" Opacity="0">
+            <Image x:Name="imgCloseAct" Source="img/close-red.png" Width="16" Height="16" Margin="220,58,564,392" MouseDown="imgCloseAct_MouseDown" />
+        </Grid>
+        <Grid x:Name="grdDevices" Visibility="Hidden" Opacity="0">
+            <Image x:Name="imgCloseDev" Source="img/close-red.png" Width="16" Height="16" Margin="178,122,606,328" MouseDown="imgCloseDev_MouseDown" />
+        </Grid>
+        <Grid x:Name="grdProfile">
+            <Label Content="PROFILE" HorizontalAlignment="Left" Margin="283,97,0,0" VerticalAlignment="Top" Foreground="#FFFF192B" FontFamily="Aller Display" FontSize="11"/>
+            <Label Content="First Name" HorizontalAlignment="Left" Margin="283,123,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Last Name" HorizontalAlignment="Left" Margin="283,155,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Birthdate" HorizontalAlignment="Left" Margin="283,187,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Postal Code" HorizontalAlignment="Left" Margin="283,219,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Gender" HorizontalAlignment="Left" Margin="283,251,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Height" HorizontalAlignment="Left" Margin="283,283,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Weight" HorizontalAlignment="Left" Margin="283,315,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Locale" HorizontalAlignment="Left" Margin="283,347,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Last Updated" HorizontalAlignment="Left" Margin="283,379,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Image Source="img/bottom-corner.png" Width="8" Height="8" Margin="761,417,31,41" />
+            <Image Source="img/top-corner.png" Width="8" Height="8" Margin="264,80,528,378" />
+            <Image x:Name="imgCloseProf" Source="img/close-red.png" Width="16" Height="16" Margin="174,187,610,263" MouseDown="imgCloseProf_MouseDown" />
+            <Image Source="img/users-dark.png" Width="8" Height="8" Margin="520,128,272,330" />
+            <Image Source="img/users-dark.png" Width="8" Height="8" Margin="520,160,272,298" />
+            <Image Source="img/calendar-dark.png" Width="8" Height="8" Margin="520,192,272,266" />
+            <Image Source="img/envelope-dark.png" Width="8" Height="8" Margin="520,224,272,234" />
+            <Image Source="img/feather-dark.png" Width="8" Height="8" Margin="520,256,272,202" />
+            <Image Source="img/forkandknife-dark.png" Width="8" Height="8" Margin="520,288,272,170" />
+            <Image Source="img/forkandspoon-dark.png" Width="8" Height="8" Margin="520,320,272,138" />
+            <Image Source="img/globe-dark.png" Width="8" Height="8" Margin="520,352,272,106" />
+            <Image Source="img/alarm-dark.png" Width="8" Height="8" Margin="520,384,272,74" />
+            <Image x:Name="imgHyperlink" Source="img/hyperlink.png" Width="8" Height="8" Margin="744,104,48,354" />
+            <Label x:Name="lblFirstName" Content="Loukas" HorizontalAlignment="Right" Margin="0,123,43,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Last Name" HorizontalAlignment="Right" Margin="0,155,43,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Birthdate" HorizontalAlignment="Right" Margin="0,187,43,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Postal Code" HorizontalAlignment="Right" Margin="0,219,43,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Gender" HorizontalAlignment="Right" Margin="0,251,43,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Height" HorizontalAlignment="Right" Margin="0,283,43,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Weight" HorizontalAlignment="Right" Margin="0,315,43,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Locale" HorizontalAlignment="Right" Margin="0,347,43,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+            <Label Content="Last Updated" HorizontalAlignment="Right" Margin="0,379,43,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
+
+
+        </Grid>
+        <Grid x:Name="grdSummaries" Visibility="Hidden" Opacity="0">
+            <Image x:Name="imgCloseSum" Source="img/close-red.png" Width="16" Height="16" Margin="237,250,547,200" MouseDown="imgCloseSum_MouseDown" />
         </Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="24" Stroke="Black" VerticalAlignment="Top" Width="754" StrokeThickness="0" MouseDown="Rectangle_MouseDown" Opacity="0"/>
         <Image x:Name="imgClose" Source="img/close.png" Width="8" Height="8" Margin="780,12,12,446" MouseDown="imgClose_MouseDown" />

@@ -14,3 +14,9 @@ c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\D
 c:\users\lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo.pdb
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Lib.dll
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Lib.pdb
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Nito.AsyncEx.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Nito.AsyncEx.Enlightenment.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Nito.AsyncEx.xml
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Nito.AsyncEx.Enlightenment.xml
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Newtonsoft.Json.xml

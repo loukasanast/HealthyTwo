@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mask.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/hyperlink.png")]
 
 

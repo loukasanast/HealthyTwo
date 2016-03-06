@@ -1,5 +1,0 @@
-C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Release\Lib.dll
-C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Release\Lib.pdb
-C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\obj\Release\Lib.csprojResolveAssemblyReference.cache
-C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\obj\Release\Lib.dll
-C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\obj\Release\Lib.pdb

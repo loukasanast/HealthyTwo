@@ -1,4 +1,13 @@
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\obj\Debug\Lib.csprojResolveAssemblyReference.cache
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Lib.dll
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Lib.pdb
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\obj\Debug\Lib.dll
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\obj\Debug\Lib.pdb
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Nito.AsyncEx.Concurrent.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Nito.AsyncEx.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Nito.AsyncEx.Enlightenment.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Nito.AsyncEx.xml
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Nito.AsyncEx.Concurrent.xml
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\Lib\bin\Debug\Nito.AsyncEx.Enlightenment.xml

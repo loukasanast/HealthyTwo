@@ -116,6 +116,7 @@
   <ItemGroup>
     <Resource Include="img\bg.png" />
     <Resource Include="img\bottom-corner.png" />
+    <Resource Include="img\close-red.png" />
     <Resource Include="img\email-hover.png" />
     <Resource Include="img\email.png" />
     <Resource Include="img\facebook-hover.png" />
@@ -166,9 +167,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lib\Lib.csproj">
-      <Project>{4bde9386-8127-4399-a458-aeb76599eb13}</Project>
+      <Project>{6f8c1a6f-9ff7-49e4-85c9-aad0ba525a71}</Project>
       <Name>Lib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\alarm-dark.png" />
+    <Resource Include="img\calendar-dark.png" />
+    <Resource Include="img\envelope-dark.png" />
+    <Resource Include="img\feather-dark.png" />
+    <Resource Include="img\forkandknife-dark.png" />
+    <Resource Include="img\forkandspoon-dark.png" />
+    <Resource Include="img\globe-dark.png" />
+    <Resource Include="img\users-dark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
