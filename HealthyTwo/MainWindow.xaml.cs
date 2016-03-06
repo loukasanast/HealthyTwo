@@ -24,8 +24,13 @@ namespace HealthyTwo
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ViewModel vm { get; set; }
+
         public MainWindow()
         {
+            vm = new ViewModel();
+            vm.Profile = new Profile();
+
             InitializeComponent();
         }
 
@@ -71,10 +76,13 @@ namespace HealthyTwo
 
         }
 
-        private void lblPro_MouseDown(object sender, MouseButtonEventArgs e)
+        private async void lblPro_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (grdProfile.Opacity == 0)
             {
+                vm.Profile = await Repository.GetProfileAsync();
+                vm.OnPropertyChanged("Profile");
+                vm.Profile.OnPropertyChanged("FirstName");
                 PageFadeIn(grdProfile);
             }
         }
@@ -131,6 +139,11 @@ namespace HealthyTwo
             g.Visibility = Visibility.Visible;
             DoubleAnimation anim = new DoubleAnimation(1, TimeSpan.FromSeconds(.14));
             g.BeginAnimation(Grid.OpacityProperty, anim);
+        }
+
+        private void imgHyperlinkPro_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start("https://dashboard.microsofthealth.com/#/profile/");
         }
     }
 }

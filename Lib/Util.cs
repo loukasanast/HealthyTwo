@@ -15,14 +15,14 @@ namespace Lib
 {
     static class Util
     {
+        private static WebClient client = new WebClient();
         private static AuthData account = new AuthData();
         private static readonly AsyncLock _lock = new AsyncLock();
         
         internal static async Task<string> GetRefreshToken()
         {
-            WebClient client = new WebClient();
             string token;
-            string temp;
+            string json;
 
             using(var releaser = await _lock.LockAsync())
             {
@@ -32,10 +32,10 @@ namespace Lib
             using(Stream stream = client.OpenRead(string.Format("https://login.live.com/oauth20_token.srf?client_id=000000004418090B&redirect_uri=http://anastasiou.engineer&client_secret=GQVfuojjAOHWk9ESwwUnlTMs7CTM4ZKF&refresh_token={0}&grant_type=refresh_token", token)))
             using(StreamReader sr = new StreamReader(stream))
             {
-                temp  = await sr.ReadToEndAsync();
+                json  = await sr.ReadToEndAsync();
             }
 
-            account = JsonConvert.DeserializeObject<AuthData>(temp);
+            account = JsonConvert.DeserializeObject<AuthData>(json);
             token = account.Refresh_token;
 
             using(var releaser = await _lock.LockAsync())
@@ -65,6 +65,22 @@ namespace Lib
                     fs.Write(Encoding.UTF8.GetBytes(token), 0, Encoding.UTF8.GetByteCount(token));
                 }
             });
+        }
+
+        internal static async Task<string> GetAccessToken()
+        {
+            string refToken;
+            string json;
+            
+            refToken = await GetRefreshToken();
+
+            json = await Task.Run<string>(() => {
+                return client.DownloadString(string.Format("https://login.live.com/oauth20_token.srf?client_id=000000004418090B&redirect_uri=http://anastasiou.engineer&client_secret=GQVfuojjAOHWk9ESwwUnlTMs7CTM4ZKF&refresh_token={0}&grant_type=refresh_token", refToken));
+            });
+
+            account = JsonConvert.DeserializeObject<AuthData>(json);
+
+            return account.Access_token;
         }
     }
 }

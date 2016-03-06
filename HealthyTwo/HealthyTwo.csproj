@@ -55,6 +55,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -87,6 +88,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -166,12 +168,6 @@
     <Resource Include="mask.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lib\Lib.csproj">
-      <Project>{6f8c1a6f-9ff7-49e4-85c9-aad0ba525a71}</Project>
-      <Name>Lib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="img\alarm-dark.png" />
     <Resource Include="img\calendar-dark.png" />
     <Resource Include="img\envelope-dark.png" />
@@ -180,6 +176,15 @@
     <Resource Include="img\forkandspoon-dark.png" />
     <Resource Include="img\globe-dark.png" />
     <Resource Include="img\users-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\hyperlink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib\Lib.csproj">
+      <Project>{dad02047-825e-4a27-bb82-41b61bbbd2f2}</Project>
+      <Name>Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
