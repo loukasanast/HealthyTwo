@@ -20,3 +20,7 @@ C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\D
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo_MarkupCompile.lref
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Database.mdf
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\Database_log.ldf
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Debug\HealthyTwo_Content.g.cs
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Debug\App.config

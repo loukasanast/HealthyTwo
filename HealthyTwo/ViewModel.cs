@@ -11,6 +11,7 @@ namespace HealthyTwo
     public class ViewModel : INotifyPropertyChanged
     {
         public Profile Profile { get; set; }
+        public DevicesList Devices { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -18,7 +19,7 @@ namespace HealthyTwo
         {
             PropertyChangedEventHandler handler = PropertyChanged;
 
-            if (handler != null)
+            if(handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }

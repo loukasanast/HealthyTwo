@@ -25,7 +25,7 @@ namespace Lib
         {
             PropertyChangedEventHandler handler = PropertyChanged;
 
-            if (handler != null)
+            if(handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }

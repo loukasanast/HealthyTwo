@@ -92,7 +92,7 @@
         <Label Content="Hello," HorizontalAlignment="Left" Margin="667,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
         <Label x:Name="lblUsername" Content="Loukas" HorizontalAlignment="Left" Margin="696,35,0,0" VerticalAlignment="Top" Foreground="#FF00A6FF" FontFamily="Nobile" FontSize="10"/>
         <Label Content="!" HorizontalAlignment="Left" Margin="731,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
-        <Grid x:Name="grdHome">
+        <Grid x:Name="grdHome" Visibility="Hidden" Opacity="0">
             <Label Content="WELCOME TO" HorizontalAlignment="Left" Margin="258,73,0,0" VerticalAlignment="Top" Foreground="#FFFF192B" FontFamily="Aller Display" FontSize="11"/>
             <Label Content="HEALTHY TWO™" HorizontalAlignment="Left" Margin="326,73,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="11"/>
             <Label Content="TRACK YOUR ACTIVITIES" HorizontalAlignment="Left" Margin="275,111,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="24"/>
@@ -110,8 +110,10 @@
         <Grid x:Name="grdActivities" Visibility="Hidden" Opacity="0">
             <Image x:Name="imgCloseAct" Source="img/close-red.png" Width="16" Height="16" Margin="220,58,564,392" MouseDown="imgCloseAct_MouseDown" />
         </Grid>
-        <Grid x:Name="grdDevices" Visibility="Hidden" Opacity="0">
-            <Image x:Name="imgCloseDev" Source="img/close-red.png" Width="16" Height="16" Margin="178,122,606,328" MouseDown="imgCloseDev_MouseDown" />
+        <Grid x:Name="grdDevices">
+            <Image x:Name="imgCloseDev" Source="img/close-red.png" Width="16" Height="16" Margin="178,123,606,327" MouseDown="imgCloseDev_MouseDown" />
+            <Image x:Name="imgAddDevHover" Source="img/add-hover.png" Width="16" Height="16" Margin="752,432,32,18" />
+            <Image x:Name="imgAddDev" Source="img/add.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="752,432,32,18" MouseDown="imgAddDev_MouseDown" />
         </Grid>
         <Grid x:Name="grdProfile" Visibility="Hidden" Opacity="0">
             <Label Content="PROFILE" HorizontalAlignment="Left" Margin="283,97,0,0" VerticalAlignment="Top" Foreground="#FFFF192B" FontFamily="Aller Display" FontSize="11"/>
@@ -146,11 +148,9 @@
             <TextBlock x:Name="tbkWeight" Text="{Binding Path=vm.Profile.Weight, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Margin="0,320,48,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10" Width="100" TextAlignment="Right"/>
             <TextBlock x:Name="tbkLocale" Text="{Binding Path=vm.Profile.PreferredLocale, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Margin="0,352,48,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10" Width="100" TextAlignment="Right"/>
             <TextBlock x:Name="tbkLastUpdated" Text="{Binding Path=vm.Profile.LastUpdateTime, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Margin="0,384,48,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10" Width="100" TextAlignment="Right"/>
-
-
         </Grid>
         <Grid x:Name="grdSummaries" Visibility="Hidden" Opacity="0">
-            <Image x:Name="imgCloseSum" Source="img/close-red.png" Width="16" Height="16" Margin="237,250,547,200" MouseDown="imgCloseSum_MouseDown" />
+            <Image x:Name="imgCloseSum" Source="img/close-red.png" Width="16" Height="16" Margin="237,251,547,199" MouseDown="imgCloseSum_MouseDown" />
         </Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="24" Stroke="Black" VerticalAlignment="Top" Width="754" StrokeThickness="0" MouseDown="Rectangle_MouseDown" Opacity="0"/>
         <Image x:Name="imgClose" Source="img/close.png" Width="8" Height="8" Margin="780,12,12,446" MouseDown="imgClose_MouseDown" />
