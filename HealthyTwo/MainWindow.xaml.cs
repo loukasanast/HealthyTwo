@@ -76,90 +76,50 @@ namespace HealthyTwo
         {
             if(grdDevices.Opacity == 0)
             {
-                //string connString = ConfigurationManager.ConnectionStrings["MainConnectionString"].ConnectionString;
-
-                //using(SqlConnection conn = new SqlConnection(connString))
-                //{
-                //    conn.Open();
-
-                //    SqlCommand cmd = conn.CreateCommand();
-                //    cmd.CommandType = CommandType.Text;
-                //    cmd.CommandText = "SELECT * FROM DEVICES";
-
-                //    SqlDataReader reader = cmd.ExecuteReader();
-
-                //    if(reader.HasRows)
-                //    {
-                //        Device temp = new Device();
-                //        vm.Devices.Clear();
-
-                //        while(reader.Read())
-                //        {
-                //            temp.Id = reader.GetInt32(0);
-                //            temp.DisplayName = reader.GetString(1);
-                //            temp.LastSuccessfulSync = reader.GetDateTime(2);
-
-                //            DeviceFamily tempDevFamily = new DeviceFamily();
-                //            temp.DeviceFamily = (Enum.TryParse<DeviceFamily>(reader.GetString(3), out tempDevFamily) ? tempDevFamily : DeviceFamily.Mobile);
-
-                //            temp.HardwareVersion = reader.GetString(4);
-                //            temp.SoftwareVersion = reader.GetString(5);
-                //            temp.ModelName = reader.GetString(6);
-                //            temp.Manufacturer = reader.GetString(7);
-
-                //            DeviceStatus tempDevStatus = new DeviceStatus();
-                //            temp.DeviceStatus = (Enum.TryParse<DeviceStatus>(reader.GetString(8), out tempDevStatus) ? tempDevStatus : DeviceStatus.Off);
-
-                //            temp.CreatedDate = reader.GetDateTime(9);
-
-                //            vm.Devices.Add(temp);
-                //        }
-                //    }
-                //}
-
-
                 vm.Devices = await Repository.GetDevicesAsync();
 
                 Label lblDevDisplayName = null;
                 string[] titles = { "Id", "", "Sync", "Family", "Hardware", "Software", "Model", "Manufact.", "Status", "Created" };
+                string[] fileNames = { "mobile.png", "sync.png", "house.png", "gear.png", "window.png", "computer.png", "suitcase.png", "sun.png", "globe.png" };
                 object[] toAdd = new object[2];
                 PropertyInfo[] pInfoArr = typeof(Device).GetProperties();
 
+                for(int i = 0; i < grdDevices.Children.Count; i++)
+                {
+                    if(!(grdDevices.Children[i] is Image))
+                    {
+                        grdDevices.Children.RemoveAt(i);
+                    }
+                }
+
                 for(int i = 0; i < vm.Devices.Count; i++)
                 {
-                    for(int j = 0; j < grdDevices.Children.OfType<Grid>().Count(); j++)
-                    {
-                        grdDevices.Children.Remove(grdDevices.Children.OfType<Grid>().ElementAt<Grid>(j));
-                    }
-
                     Grid grdDev = new Grid();
                     grdDev.Opacity = (i % 2 == 0 ? 1 : .4);
                     grdDevices.Children.Add(grdDev);
 
-                    if(lblDevDisplayName == null)
-                    {
-                        lblDevDisplayName = new Label();
-                        lblDevDisplayName.Content = vm.Devices[i].DisplayName;
-                        lblDevDisplayName.HorizontalAlignment = HorizontalAlignment.Left;
-                        lblDevDisplayName.Margin = new Thickness(283 + i * 128, 97, 0, 0);
-                        lblDevDisplayName.VerticalAlignment = VerticalAlignment.Top;
-                        lblDevDisplayName.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
-                        lblDevDisplayName.FontFamily = new FontFamily("Aller Display");
-                        lblDevDisplayName.FontSize = 11;
-                        grdDev.Children.Add(lblDevDisplayName);
-                    }
+                    lblDevDisplayName = new Label();
+                    lblDevDisplayName.Content = vm.Devices[i].DisplayName.ToUpper();
+                    lblDevDisplayName.HorizontalAlignment = HorizontalAlignment.Left;
+                    lblDevDisplayName.Margin = new Thickness(283 + i * 168, 97, 0, 0);
+                    lblDevDisplayName.VerticalAlignment = VerticalAlignment.Top;
+                    lblDevDisplayName.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
+                    lblDevDisplayName.FontFamily = new FontFamily("Aller Display");
+                    lblDevDisplayName.FontSize = 11;
+                    grdDevices.Children.Add(lblDevDisplayName);
 
                     for(int j = 0; j < typeof(Device).GetProperties().Length; j++)
                     {
                         if(j == 1) continue;
-                        string propName = pInfoArr[j].PropertyType == typeof(DateTime) ? ((DateTime)pInfoArr[j].GetValue(vm.Devices[i])).ToString("d") : pInfoArr[j].GetValue(vm.Devices[i]).ToString();
-                        toAdd = PrepDevControls(titles[j], propName, i, j > 1 ? j - 1 : j);
+                        string prop = pInfoArr[j].PropertyType == typeof(DateTime) ? ((DateTime)pInfoArr[j].GetValue(vm.Devices[i])).ToString("d") : pInfoArr[j].GetValue(vm.Devices[i]).ToString();
+                        toAdd = PrepDevControls(titles[j], prop, i, j > 1 ? j - 1 : j);
                         grdDev.Children.Add((Label)toAdd[0]);
                         grdDev.Children.Add((TextBlock)toAdd[1]);
+                        AddImg(grdDev, fileNames[j > 1 ? j - 1 : j], 8, 8, new Thickness(345 + (i * 168), 128 + ((j > 1 ? j - 1 : j) * 32), 447 - (i * 168), 330 - ((j > 1 ? j - 1 : j) * 32)));
                     }
 
-                    AddImg(grdDev, "top-corner.png", 8, 8, new Thickness(264 + (i * 168), 80, 528 - (i * 168), 378));
-                    AddImg(grdDev, "bottom-corner.png", 8, 8, new Thickness(425 + (i * 168), 417, 367 - (i * 168), 41));
+                    AddImg(grdDevices, "top-corner.png", 8, 8, new Thickness(264 + (i * 168), 80, 528 - (i * 168), 378));
+                    AddImg(grdDevices, "bottom-corner.png", 8, 8, new Thickness(425 + (i * 168), 417, 367 - (i * 168), 41));
                 }
 
                 PageFadeIn(grdDevices);
@@ -171,10 +131,14 @@ namespace HealthyTwo
         {
             if(grdProfile.Opacity == 0)
             {
+                lblPro.MouseDown -= lblPro_MouseDown;
+                imgUser.MouseDown -= lblPro_MouseDown;
                 vm.Profile = await Repository.GetProfileAsync();
                 vm.OnPropertyChanged("Profile");
                 vm.Profile.OnPropertyChanged("FirstName");
                 PageFadeIn(grdProfile);
+                lblPro.MouseDown += lblPro_MouseDown;
+                imgUser.MouseDown += lblPro_MouseDown;
             }
         }
 
@@ -231,15 +195,44 @@ namespace HealthyTwo
 
                 AddImg(addGrid, "top-corner.png", 8, 8, new Thickness(264 + vm.Devices.Count * 168, 80, 528 - vm.Devices.Count * 168, 378));
                 AddImg(addGrid, "bottom-corner.png", 8, 8, new Thickness(425 + vm.Devices.Count * 168, 417, 367 - vm.Devices.Count * 168, 41));
-                AddImg(addGrid, "upload-hover.png", 16, 16, new Thickness(288 + vm.Devices.Count * 168, 96, 496 - vm.Devices.Count * 168, 354));
-                AddImg(addGrid, "upload.png", 16, 16, new Thickness(288 + vm.Devices.Count * 168, 96, 496 - vm.Devices.Count * 168, 354), (Style)TryFindResource("ImgFadeOut"));
-                AddImg(addGrid, "discart-hover.png", 16, 16, new Thickness(312 + vm.Devices.Count * 168, 96, 468 - vm.Devices.Count * 168, 354));
-                AddImg(addGrid, "discart.png", 16, 16, new Thickness(312 + vm.Devices.Count * 168, 96, 468 - vm.Devices.Count * 168, 354), (Style)TryFindResource("ImgFadeOut")).MouseDown += (s, eArgs) =>
+                AddImg(addGrid, "upload-hover.png", 8, 8, new Thickness(284 + vm.Devices.Count * 168, 102, 500 - vm.Devices.Count * 168, 348));
+                AddImg(addGrid, "upload.png", 8, 8, new Thickness(284 + vm.Devices.Count * 168, 102, 500 - vm.Devices.Count * 168, 348), (Style)TryFindResource("ImgFadeOut")).MouseDown += async (s, eArgs) => 
+                {
+                    Device temp = new Device();
+
+                    temp.DisplayName = addGrid.Children.OfType<TextBox>().ElementAt(0).Text.Trim();
+                    DateTime tempDate;
+                    DateTime.TryParse(addGrid.Children.OfType<TextBox>().ElementAt(1).Text.Trim(), vm.Profile.PreferredLocale, System.Globalization.DateTimeStyles.None, out tempDate);
+                    temp.LastSuccessfulSync = tempDate;
+                    DeviceFamily tempFamily;
+                    Enum.TryParse<DeviceFamily>(addGrid.Children.OfType<TextBox>().ElementAt(2).Text.Trim(), out tempFamily);
+                    temp.DeviceFamily = tempFamily;
+                    temp.HardwareVersion = addGrid.Children.OfType<TextBox>().ElementAt(3).Text.Trim();
+                    temp.SoftwareVersion = addGrid.Children.OfType<TextBox>().ElementAt(4).Text.Trim();
+                    temp.ModelName = addGrid.Children.OfType<TextBox>().ElementAt(5).Text.Trim();
+                    temp.Manufacturer = addGrid.Children.OfType<TextBox>().ElementAt(6).Text.Trim();
+                    DeviceStatus tempStatus;
+                    Enum.TryParse<DeviceStatus>(addGrid.Children.OfType<TextBox>().ElementAt(7).Text.Trim(), out tempStatus);
+                    temp.DeviceStatus = tempStatus;
+                    DateTime.TryParse(addGrid.Children.OfType<TextBox>().ElementAt(8).Text.Trim(), vm.Profile.PreferredLocale, System.Globalization.DateTimeStyles.None, out tempDate);
+                    temp.CreatedDate = tempDate;
+
+                    if(Validate(addGrid))
+                    {
+                        await Repository.AddDeviceAsync(temp);
+                        imgAddDev.MouseDown += imgAddDev_MouseDown;
+                        grdDevices.Children.Remove(addGrid);
+                    }
+                };
+                AddImg(addGrid, "discart-hover.png", 8, 8, new Thickness(296 + vm.Devices.Count * 168, 102, 480 - vm.Devices.Count * 168, 348));
+                AddImg(addGrid, "discart.png", 8, 8, new Thickness(296 + vm.Devices.Count * 168, 102, 480 - vm.Devices.Count * 168, 348), (Style)TryFindResource("ImgFadeOut")).MouseDown += (s, eArgs) =>
                 {
                     grdDevices.Children.Remove(addGrid);
+                    imgAddDev.MouseDown += imgAddDev_MouseDown;
                 };
 
                 grdDevices.Children.Add(addGrid);
+                imgAddDev.MouseDown -= imgAddDev_MouseDown;
             }
             else
             {
@@ -277,7 +270,7 @@ namespace HealthyTwo
             Label lbl = new Label();
             lbl.Content = key;
             lbl.HorizontalAlignment = HorizontalAlignment.Left;
-            lbl.Margin = new Thickness(283 + col * 128, 123 + row * 32, 0, 0);
+            lbl.Margin = new Thickness(283 + col * 168, 123 + row * 32, 0, 0);
             lbl.VerticalAlignment = VerticalAlignment.Top;
             lbl.Foreground = new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
             lbl.FontFamily = new FontFamily("Nobile");
@@ -287,7 +280,7 @@ namespace HealthyTwo
             TextBlock tbk = new TextBlock();
             tbk.Text = value;
             tbk.HorizontalAlignment = HorizontalAlignment.Left;
-            tbk.Margin = new Thickness(311 + col * 128, 128 + row * 32, 0, 0);
+            tbk.Margin = new Thickness(311 + col * 168, 128 + row * 32, 0, 0);
             tbk.VerticalAlignment = VerticalAlignment.Top;
             tbk.Foreground = new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
             tbk.FontFamily = new FontFamily("Nobile");
@@ -339,6 +332,58 @@ namespace HealthyTwo
             c.Children.Add(img);
 
             return img;
+        }
+
+        private void RefreshPage(Grid g)
+        {
+            ((Storyboard)FindResource("PageFadeOut")).Begin(g);
+            PageFadeIn(g);
+        }
+
+        private bool Validate(Grid g)
+        {
+            String message = string.Empty;
+            TextBox[] ctrls = g.Children.OfType<TextBox>().ToArray<TextBox>();
+
+            foreach(TextBox element in ctrls)
+            {
+                if(element.Text == string.Empty)
+                {
+                    message += "This form is not completed." + Environment.NewLine;
+                    break;
+                }
+            }
+
+            DateTime tempDate;
+
+            if(!DateTime.TryParse(ctrls[1].Text, out tempDate) || !DateTime.TryParse(ctrls[8].Text, out tempDate))
+            {
+                message += "This is not a valid date format (dd.mm.yyyy)." + Environment.NewLine;
+            }
+
+            DeviceFamily tempFamily;
+
+            if(!Enum.TryParse<DeviceFamily>(ctrls[2].Text, out tempFamily))
+            {
+                message += "The Family field can only have the values Mobile, Tablet and Desktop." + Environment.NewLine;
+            }
+
+            DeviceStatus tempStatus;
+
+            if(!Enum.TryParse<DeviceStatus>(ctrls[7].Text, out tempStatus))
+            {
+                message += "The Device Status field can only have the values On and Off." + Environment.NewLine;
+            }
+
+            if(message != string.Empty)
+            {
+                MessageBox.Show(message, "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

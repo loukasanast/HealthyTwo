@@ -33,7 +33,6 @@
                 </EventTrigger>
             </Style.Triggers>
         </Style>
-
         <Style x:Key="ImgFadeOut">
             <Style.Triggers>
                 <EventTrigger RoutedEvent="Mouse.MouseEnter">
@@ -56,7 +55,6 @@
                 </EventTrigger>
             </Style.Triggers>
         </Style>
-
         <Storyboard x:Key="PageFadeOut">
             <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Storyboard.TargetProperty="Visibility">
                 <DiscreteObjectKeyFrame KeyTime="0">
@@ -67,7 +65,6 @@
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.2"/>
         </Storyboard>
-
     </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="img/bg.png"/>
@@ -92,7 +89,7 @@
         <Label Content="Hello," HorizontalAlignment="Left" Margin="667,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
         <Label x:Name="lblUsername" Content="Loukas" HorizontalAlignment="Left" Margin="696,35,0,0" VerticalAlignment="Top" Foreground="#FF00A6FF" FontFamily="Nobile" FontSize="10"/>
         <Label Content="!" HorizontalAlignment="Left" Margin="731,35,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Nobile" FontSize="10"/>
-        <Grid x:Name="grdHome" Visibility="Hidden" Opacity="0">
+        <Grid x:Name="grdHome">
             <Label Content="WELCOME TO" HorizontalAlignment="Left" Margin="258,73,0,0" VerticalAlignment="Top" Foreground="#FFFF192B" FontFamily="Aller Display" FontSize="11"/>
             <Label Content="HEALTHY TWO™" HorizontalAlignment="Left" Margin="326,73,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="11"/>
             <Label Content="TRACK YOUR ACTIVITIES" HorizontalAlignment="Left" Margin="275,111,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Aller Display" FontSize="24"/>
@@ -108,9 +105,9 @@
             <Image Source="img/bottom-corner.png" Width="8" Height="8" Margin="761,417,31,41" />
         </Grid>
         <Grid x:Name="grdActivities" Visibility="Hidden" Opacity="0">
-            <Image x:Name="imgCloseAct" Source="img/close-red.png" Width="16" Height="16" Margin="220,58,564,392" MouseDown="imgCloseAct_MouseDown" />
+            <Image x:Name="imgCloseAct" Source="img/close-red.png" Width="16" Height="16" Margin="220,59,564,391" MouseDown="imgCloseAct_MouseDown" />
         </Grid>
-        <Grid x:Name="grdDevices">
+        <Grid x:Name="grdDevices" Visibility="Hidden" Opacity="0">
             <Image x:Name="imgCloseDev" Source="img/close-red.png" Width="16" Height="16" Margin="178,123,606,327" MouseDown="imgCloseDev_MouseDown" />
             <Image x:Name="imgAddDevHover" Source="img/add-hover.png" Width="16" Height="16" Margin="752,432,32,18" />
             <Image x:Name="imgAddDev" Source="img/add.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="752,432,32,18" MouseDown="imgAddDev_MouseDown" />

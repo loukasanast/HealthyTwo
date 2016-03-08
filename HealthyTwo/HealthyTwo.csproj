@@ -195,9 +195,26 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Database_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="img\window.png" />
+    <Resource Include="img\sync.png" />
+    <Resource Include="img\sun.png" />
+    <Resource Include="img\suitcase.png" />
+    <Resource Include="img\mobile.png" />
+    <Resource Include="img\house.png" />
+    <Resource Include="img\gear.png" />
+    <Resource Include="img\computer.png" />
+    <Resource Include="img\computer.gif" />
+    <Resource Include="img\gear.gif" />
+    <Resource Include="img\globe.png" />
+    <Resource Include="img\house.gif" />
+    <Resource Include="img\mobile.gif" />
+    <Resource Include="img\suitcase.gif" />
+    <Resource Include="img\sun.gif" />
+    <Resource Include="img\sync.gif" />
+    <Resource Include="img\window.gif" />
     <Resource Include="img\upload.png" />
     <Resource Include="img\upload-hover.png" />
     <Resource Include="img\discart-hover.png" />
