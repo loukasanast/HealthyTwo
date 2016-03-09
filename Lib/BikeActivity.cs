@@ -8,6 +8,9 @@ namespace Lib
 {
     class BikeActivity : IActivity
     {
+        public TimeSpan Period { get; set; }
+        public int TotalDistance { get; set; }
+        public int Speed { get; set; }
         public int AverageHeartRate { get; set; }
 
         public int Duration
@@ -22,15 +25,10 @@ namespace Lib
             set { throw new NotImplementedException(); }
         }
 
-        public TimeSpan Period { get; set; }
-        public int Speed { get; set; }
-
         public DateTime StartTime
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
-
-        public int TotalDistance { get; set; }
     }
 }

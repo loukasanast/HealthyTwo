@@ -8,8 +8,10 @@ namespace Lib
 {
     public class SleepActivity : IActivity
     {
-        public int AverageHeartRate { get; set; }
+        public TimeSpan Period { get; set; }
         public int Duration { get; set; }
+        public DateTime StartTime { get; set; }
+        public int AverageHeartRate { get; set; }
 
         public int HoleNumber
         {
@@ -17,15 +19,11 @@ namespace Lib
             set { throw new NotImplementedException(); }
         }
 
-        public TimeSpan Period { get; set; }
-
         public int Speed
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
-
-        public DateTime StartTime { get; set; }
 
         public int TotalDistance
         {

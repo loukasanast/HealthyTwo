@@ -81,6 +81,7 @@ namespace Lib
             {
                 if(inner[i].Equals(item))
                 {
+                    Count--;
                     inner[i] = null;
                     result = true;
                 }

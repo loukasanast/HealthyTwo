@@ -8,6 +8,9 @@ namespace Lib
 {
     public class GolfActivity : IActivity
     {
+        public TimeSpan Period { get; set; }
+        public int TotalDistance { get; set; }
+        public int HoleNumber { get; set; }
         public int AverageHeartRate { get; set; }
 
         public int Duration
@@ -15,9 +18,6 @@ namespace Lib
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
-
-        public int HoleNumber { get; set; }
-        public TimeSpan Period { get; set; }
 
         public int Speed
         {
@@ -30,7 +30,5 @@ namespace Lib
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
-
-        public int TotalDistance { get; set; }
     }
 }

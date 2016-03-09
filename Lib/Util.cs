@@ -87,7 +87,7 @@ namespace Lib
         {
             Task.Run(() =>
             {
-                HttpServer server = new HttpServer();
+                HttpServer server = HttpServer.GetHttpServer();
 
                 if(server.TryStart())
                 {

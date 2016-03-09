@@ -14,29 +14,47 @@ namespace Lib
         internal HttpListener Listener { get; set; }
         internal HttpListenerContext Context { get; set; }
         internal HttpListenerResponse Response { get; set; }
+        public bool IsInit { get; set; }
+        private static HttpServer singleton;
 
-        public HttpServer()
+        private HttpServer()
         {
             Listener = new HttpListener();
         }
 
+        public static HttpServer GetHttpServer()
+        {
+            if(singleton == null)
+            {
+                singleton = new HttpServer();
+            }
+
+            return singleton;
+        }
+
         public bool TryStart()
         {
-            try
+            if(!IsInit)
             {
-                Listener.Prefixes.Add("http://localhost:8080/");
-                Listener.Start();
-                return true;
+                try
+                {
+                    Listener.Prefixes.Add("http://localhost:8080/");
+                    Listener.Start();
+                    IsInit = true;
+                    return true;
+                }
+                catch
+                {
+                    ConsoleColor temp = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    MessageBox.Show("Could not initiate the server.");
+                    Console.ForegroundColor = temp;
+                    Console.Read();
+                    return false;
+                }
             }
-            catch
-            {
-                ConsoleColor temp = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Red;
-                MessageBox.Show("Could not initiate the server.");
-                Console.ForegroundColor = temp;
-                Console.Read();
-                return false;
-            }
+
+            return true;
         }
 
         public async void Respond()

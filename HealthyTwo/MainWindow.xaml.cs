@@ -69,9 +69,55 @@ namespace HealthyTwo
         {
             if(grdActivities.Opacity == 0)
             {
-                PageFadeIn(grdActivities);
+                for(int i = 0; i < grdActivities.Children.OfType<Grid>().Count(); i++)
+                {
+                    grdActivities.Children.RemoveRange(1, 24);
+                    break;
+                }
+
                 vm.Activities = await Repository.GetActivitiesAsync();
-                MessageBox.Show(vm.Activities[0].Period.TotalDays.ToString());
+                PropertyInfo[] pInfoArr = typeof(IActivity).GetProperties();
+                object[] toAdd = new object[2];
+                Label lblDevDisplayName;
+                string[] titles = { "Bike", "Free Play", "Golf", "Guided Workout", "Run", "Sleep" };
+
+                for(int i = 0; i < vm.Activities.Count; i++)
+                {
+                    Grid grdAct = new Grid();
+
+                    lblDevDisplayName = new Label();
+                    lblDevDisplayName.Content = titles[i].ToUpper();
+                    lblDevDisplayName.HorizontalAlignment = HorizontalAlignment.Left;
+                    lblDevDisplayName.Margin = new Thickness(283 + ((i < 3 ? i : i - 3) * 168), 97 + ((i < 3 ? 0 : 1) * 172), 0, 0);
+                    lblDevDisplayName.VerticalAlignment = VerticalAlignment.Top;
+                    lblDevDisplayName.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
+                    lblDevDisplayName.FontFamily = new FontFamily("Aller Display");
+                    lblDevDisplayName.FontSize = 11;
+                    grdActivities.Children.Add(lblDevDisplayName);
+
+                    AddImg(grdActivities, "top-corner.png", 8, 8, new Thickness(264 + ((i < 3 ? i : i - 3) * 168), 80 + (i > 2 ? 172 : 0), 528 - ((i < 3 ? i : i - 3) * 168), 378 - (i > 2 ? 172 : 0)));
+                    AddImg(grdActivities, "bottom-corner.png", 8, 8, new Thickness(425 + ((i < 3 ? i : i - 3) * 168), 245 + (i > 2 ? 172 : 0), 367 - ((i < 3 ? i : i - 3) * 168), 213 - (i > 2 ? 172 : 0)));
+
+                    for(int j = 0; j < pInfoArr.Length - 3; j++)
+                    {
+                        if(vm.Activities[i].GetType() == typeof(GolfActivity) && j == 2)
+                            toAdd = PrepActControls(pInfoArr[4].Name, pInfoArr[4].GetValue(vm.Activities[i]).ToString() ?? "null", (i < 3 ? i : i - 3), j, (i < 3 ? 0 : 1));
+                        else if(vm.Activities[i].GetType() == typeof(SleepActivity) && j == 1)
+                            toAdd = PrepActControls(pInfoArr[5].Name, pInfoArr[5].GetValue(vm.Activities[i]).ToString() ?? "null", (i < 3 ? i : i - 3), j, (i < 3 ? 0 : 1));
+                        else if(vm.Activities[i].GetType() == typeof(SleepActivity) && j == 2)
+                            toAdd = PrepActControls(pInfoArr[6].Name, pInfoArr[6].GetValue(vm.Activities[i]).ToString() ?? "null", (i < 3 ? i : i - 3), j, (i < 3 ? 0 : 1));
+                        else
+                            toAdd = PrepActControls(pInfoArr[j].Name, pInfoArr[j].GetValue(vm.Activities[i]).ToString() ?? "null", (i < 3 ? i : i - 3), j, (i < 3 ? 0 : 1));
+
+                        grdAct.Children.Add((Label)toAdd[0]);
+                        grdAct.Children.Add((TextBlock)toAdd[1]);
+                        grdAct.Opacity = (i % 2 == 0 ? 1 : .4);
+                    }
+
+                    grdActivities.Children.Add(grdAct);
+                }
+
+                PageFadeIn(grdActivities);
             }
         }
 
@@ -139,9 +185,9 @@ namespace HealthyTwo
                 vm.Profile = await Repository.GetProfileAsync();
                 vm.OnPropertyChanged("Profile");
                 vm.Profile.OnPropertyChanged("FirstName");
-                PageFadeIn(grdProfile);
                 lblPro.MouseDown += lblPro_MouseDown;
                 imgUser.MouseDown += lblPro_MouseDown;
+                PageFadeIn(grdProfile);
             }
         }
 
@@ -210,6 +256,15 @@ namespace HealthyTwo
                 (imgUpload = AddImg(addGrid, "upload.png", 8, 8, new Thickness(284 + vm.Devices.Count * 168, 102, 500 - vm.Devices.Count * 168, 348), (Style)TryFindResource("ImgFadeOut"))).MouseDown += async (s, eArgs) => 
                 {
                     Device temp = new Device();
+
+                    for(int i = 0; i < addGrid.Children.OfType<Label>().Count(); i++)
+                    {
+                        if(addGrid.Children.OfType<Label>().ElementAt<Label>(i).Content.ToString() == "Name")
+                        {
+                            addGrid.Children.OfType<Label>().ElementAt<Label>(i).Content = "Id";
+                            break;
+                        }
+                    }
 
                     temp.DisplayName = addGrid.Children.OfType<TextBox>().ElementAt(0).Text.Trim();
                     DateTime tempDate;
@@ -306,6 +361,62 @@ namespace HealthyTwo
             g.Visibility = Visibility.Visible;
             DoubleAnimation anim = new DoubleAnimation(1, TimeSpan.FromSeconds(.14));
             g.BeginAnimation(Grid.OpacityProperty, anim);
+        }
+
+        private object[] PrepActControls(string key, string value, int col, int row, int r)
+        {
+            object[] result = new object[2];
+
+            switch(key)
+            {
+                case "Period": value = (DateTime.Now - TimeSpan.Parse(value)).ToString("y");
+                    break;
+                case "TotalDistance":
+                    value = string.Format("{0} m", value);
+                    key = "Distance";
+                    break;
+                case "Speed":
+                    value = string.Format("{0} Km/h", value);
+                    break;
+                case "AverageHeartRate":
+                    value = string.Format("{0} per m", value);
+                    key = "Heart Rate";
+                    break;
+                case "HoleNumber":
+                    key = "Hole Nr.";
+                    break;
+                case "Duration":
+                    value = string.Format("{0} h", value);
+                    break;
+                case "StartTime":
+                    value = DateTime.Parse(value).ToString("t");
+                    key = "Time";
+                    break;
+            }
+
+            Label lbl = new Label();
+            lbl.Content = key;
+            lbl.HorizontalAlignment = HorizontalAlignment.Left;
+            lbl.Margin = new Thickness(283 + col * 168, 123 + row * 32 + (r * 172), 0, 0);
+            lbl.VerticalAlignment = VerticalAlignment.Top;
+            lbl.Foreground = new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
+            lbl.FontFamily = new FontFamily("Nobile");
+            lbl.FontSize = 10;
+            result[0] = lbl;
+
+            TextBlock tbk = new TextBlock();
+            tbk.Text = value;
+            tbk.HorizontalAlignment = HorizontalAlignment.Left;
+            tbk.Margin = new Thickness(311 + col * 168, 128 + row * 32 + (r * 172), 0, 0);
+            tbk.VerticalAlignment = VerticalAlignment.Top;
+            tbk.Foreground = new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
+            tbk.FontFamily = new FontFamily("Nobile");
+            tbk.FontSize = 10;
+            tbk.Width = 100;
+            tbk.TextAlignment = TextAlignment.Right;
+            result[1] = tbk;
+
+            return result;
         }
 
         private object[] PrepDevControls(string key, string value, int col, int row)
