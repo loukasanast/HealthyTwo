@@ -33,6 +33,7 @@ namespace HealthyTwo
         public MainWindow()
         {
             vm = new ViewModel();
+            vm.Activities = new ActivitiesList(6);
             vm.Devices = new DevicesList(3);
             vm.Profile = new Profile();
 
@@ -64,11 +65,13 @@ namespace HealthyTwo
             Process.Start("https://www.facebook.com/loukas.anastasiou.311");
         }
 
-        private void lblAct_MouseDown(object sender, MouseButtonEventArgs e)
+        private async void lblAct_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(grdActivities.Opacity == 0)
             {
                 PageFadeIn(grdActivities);
+                vm.Activities = await Repository.GetActivitiesAsync();
+                MessageBox.Show(vm.Activities[0].Period.TotalDays.ToString());
             }
         }
 
@@ -193,10 +196,18 @@ namespace HealthyTwo
                     addGrid.Children.Add((TextBox)toAdd[1]);
                 }
 
-                AddImg(addGrid, "top-corner.png", 8, 8, new Thickness(264 + vm.Devices.Count * 168, 80, 528 - vm.Devices.Count * 168, 378));
-                AddImg(addGrid, "bottom-corner.png", 8, 8, new Thickness(425 + vm.Devices.Count * 168, 417, 367 - vm.Devices.Count * 168, 41));
-                AddImg(addGrid, "upload-hover.png", 8, 8, new Thickness(284 + vm.Devices.Count * 168, 102, 500 - vm.Devices.Count * 168, 348));
-                AddImg(addGrid, "upload.png", 8, 8, new Thickness(284 + vm.Devices.Count * 168, 102, 500 - vm.Devices.Count * 168, 348), (Style)TryFindResource("ImgFadeOut")).MouseDown += async (s, eArgs) => 
+                AddImg(grdDevices, "top-corner.png", 8, 8, new Thickness(264 + vm.Devices.Count * 168, 80, 528 - vm.Devices.Count * 168, 378));
+                AddImg(grdDevices, "bottom-corner.png", 8, 8, new Thickness(425 + vm.Devices.Count * 168, 417, 367 - vm.Devices.Count * 168, 41));
+                Image imgDiscartHover = AddImg(addGrid, "discart-hover.png", 8, 8, new Thickness(296 + vm.Devices.Count * 168, 102, 480 - vm.Devices.Count * 168, 348));
+                Image imgDiscart;
+                (imgDiscart = AddImg(addGrid, "discart.png", 8, 8, new Thickness(296 + vm.Devices.Count * 168, 102, 480 - vm.Devices.Count * 168, 348), (Style)TryFindResource("ImgFadeOut"))).MouseDown += (s, eArgs) =>
+                {
+                    grdDevices.Children.Remove(addGrid);
+                    imgAddDev.MouseDown += imgAddDev_MouseDown;
+                };
+                Image imgUploadHover =AddImg(addGrid, "upload-hover.png", 8, 8, new Thickness(284 + vm.Devices.Count * 168, 102, 500 - vm.Devices.Count * 168, 348));
+                Image imgUpload;
+                (imgUpload = AddImg(addGrid, "upload.png", 8, 8, new Thickness(284 + vm.Devices.Count * 168, 102, 500 - vm.Devices.Count * 168, 348), (Style)TryFindResource("ImgFadeOut"))).MouseDown += async (s, eArgs) => 
                 {
                     Device temp = new Device();
 
@@ -221,14 +232,48 @@ namespace HealthyTwo
                     {
                         await Repository.AddDeviceAsync(temp);
                         imgAddDev.MouseDown += imgAddDev_MouseDown;
-                        grdDevices.Children.Remove(addGrid);
+
+                        for(int i = 0; i < addGrid.Children.Count; i++)
+                        {
+                            if((addGrid.Children[i] is TextBox))
+                            {
+                                addGrid.Children.RemoveAt(i);
+                            }
+                        }
+
+                        addGrid.Children.Remove(imgUploadHover);
+                        addGrid.Children.Remove(imgUpload);
+                        addGrid.Children.Remove(imgDiscartHover);
+                        addGrid.Children.Remove(imgDiscart);
+
+                        vm.Devices = await Repository.GetDevicesAsync();
+
+                        Label lblDevDisplayName = null;
+                        string[] fileNames = { "mobile.png", "sync.png", "house.png", "gear.png", "window.png", "computer.png", "suitcase.png", "sun.png", "globe.png" };
+                        PropertyInfo[] pInfoArr = typeof(Device).GetProperties();
+                        int k = vm.Devices.Count - 1;
+
+                        lblDevDisplayName = new Label();
+                        lblDevDisplayName.Content = vm.Devices[k].DisplayName.ToUpper();
+                        lblDevDisplayName.HorizontalAlignment = HorizontalAlignment.Left;
+                        lblDevDisplayName.Margin = new Thickness(283 + k * 168, 97, 0, 0);
+                        lblDevDisplayName.VerticalAlignment = VerticalAlignment.Top;
+                        lblDevDisplayName.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
+                        lblDevDisplayName.FontFamily = new FontFamily("Aller Display");
+                        lblDevDisplayName.FontSize = 11;
+                        grdDevices.Children.Add(lblDevDisplayName);
+
+                        for(int j = 0; j < typeof(Device).GetProperties().Length; j++)
+                        {
+                            if(j == 1) continue;
+                            string prop = pInfoArr[j].PropertyType == typeof(DateTime) ? ((DateTime)pInfoArr[j].GetValue(vm.Devices[k])).ToString("d") : pInfoArr[j].GetValue(vm.Devices[k]).ToString();
+                            toAdd = PrepDevControls(typeof(Device).GetProperties()[j].Name, prop, k, j > 1 ? j - 1 : j);
+                            addGrid.Children.Add((TextBlock)toAdd[1]);
+                            AddImg(addGrid, fileNames[j > 1 ? j - 1 : j], 8, 8, new Thickness(345 + (k * 168), 128 + ((j > 1 ? j - 1 : j) * 32), 447 - (k * 168), 330 - ((j > 1 ? j - 1 : j) * 32)));
+                        }
+
+                        addGrid.Opacity = (k % 2 == 0 ? 1 : .4);
                     }
-                };
-                AddImg(addGrid, "discart-hover.png", 8, 8, new Thickness(296 + vm.Devices.Count * 168, 102, 480 - vm.Devices.Count * 168, 348));
-                AddImg(addGrid, "discart.png", 8, 8, new Thickness(296 + vm.Devices.Count * 168, 102, 480 - vm.Devices.Count * 168, 348), (Style)TryFindResource("ImgFadeOut")).MouseDown += (s, eArgs) =>
-                {
-                    grdDevices.Children.Remove(addGrid);
-                    imgAddDev.MouseDown += imgAddDev_MouseDown;
                 };
 
                 grdDevices.Children.Add(addGrid);

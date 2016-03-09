@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Nito.AsyncEx;
 using System.Net;
 using Windows;
@@ -19,6 +20,7 @@ namespace Lib
         private static string token;
         private static WebClient client;
         private static Profile profile;
+        private static ActivitiesList activities;
 
         public static async Task<string> Test()
         {
@@ -40,6 +42,59 @@ namespace Lib
                 profile = JsonConvert.DeserializeObject<Profile>(json);
 
                 return profile;
+            });
+        }
+
+        public static Task<ActivitiesList> GetActivitiesAsync()
+        {         
+            JObject jsonActivities;
+            client = new WebClient();
+            string json;
+            IActivity bike = new BikeActivity();
+            IActivity freePlay = new FreePlayActivity();
+            IActivity golf = new GolfActivity();
+            IActivity guidedWorkout = new GuidedWorkoutActivity();
+            IActivity run = new RunActivity();
+            IActivity sleep = new SleepActivity();
+            activities = new ActivitiesList(6) { bike, freePlay, golf, guidedWorkout, run, sleep };
+
+            return Task.Run<ActivitiesList>(async () => {
+                Util.StartServer();
+
+                json = await Task.Run<string>(() => client.DownloadString("http://localhost:8080/"));
+                jsonActivities = JObject.Parse(json);
+
+                bike.Period = (TimeSpan)jsonActivities["bikeActivities"].Children()["activitySegments"].Children()["distanceSummary"]["period"].ToList().SingleOrDefault();
+                bike.TotalDistance = (int)jsonActivities["bikeActivities"].Children()["activitySegments"].Children()["distanceSummary"]["totalDistance"].ToList().SingleOrDefault();
+                bike.Speed = (int)jsonActivities["bikeActivities"].Children()["activitySegments"].Children()["distanceSummary"]["speed"].ToList().SingleOrDefault();
+                bike.AverageHeartRate = (int)jsonActivities["bikeActivities"].Children()["activitySegments"].Children()["heartRateSummary"]["averageHeartRate"].ToList().SingleOrDefault();
+
+                freePlay.Period = (TimeSpan)jsonActivities["freePlayActivities"].Children()["activitySegments"].Children()["distanceSummary"]["period"].ToList().SingleOrDefault();
+                freePlay.TotalDistance = (int)jsonActivities["freePlayActivities"].Children()["activitySegments"].Children()["distanceSummary"]["totalDistance"].ToList().SingleOrDefault();
+                freePlay.Speed = (int)jsonActivities["freePlayActivities"].Children()["activitySegments"].Children()["distanceSummary"]["speed"].ToList().SingleOrDefault();
+                freePlay.AverageHeartRate = (int)jsonActivities["freePlayActivities"].Children()["activitySegments"].Children()["heartRateSummary"]["averageHeartRate"].ToList().SingleOrDefault();
+
+                golf.Period = (TimeSpan)jsonActivities["golfActivities"].Children()["activitySegments"].Children()["period"].ToList().SingleOrDefault();
+                golf.TotalDistance = (int)jsonActivities["golfActivities"].Children()["activitySegments"].Children()["distanceWalked"].ToList().SingleOrDefault();
+                golf.HoleNumber = (int)jsonActivities["golfActivities"].Children()["activitySegments"].Children()["holeNumber"].ToList().SingleOrDefault();
+                golf.AverageHeartRate = (int)jsonActivities["golfActivities"].Children()["activitySegments"].Children()["heartRateSummary"]["averageHeartRate"].ToList().SingleOrDefault();
+
+                guidedWorkout.Period = (TimeSpan)jsonActivities["freePlayActivities"].Children()["activitySegments"].Children()["distanceSummary"]["period"].ToList().SingleOrDefault();
+                guidedWorkout.TotalDistance = (int)jsonActivities["freePlayActivities"].Children()["activitySegments"].Children()["distanceSummary"]["totalDistance"].ToList().SingleOrDefault();
+                guidedWorkout.Speed = (int)jsonActivities["freePlayActivities"].Children()["activitySegments"].Children()["distanceSummary"]["speed"].ToList().SingleOrDefault();
+                guidedWorkout.AverageHeartRate = (int)jsonActivities["freePlayActivities"].Children()["activitySegments"].Children()["heartRateSummary"]["averageHeartRate"].ToList().SingleOrDefault();
+
+                run.Period = (TimeSpan)jsonActivities["runActivities"].Children()["activitySegments"].Children()["distanceSummary"]["period"].ToList().SingleOrDefault();
+                run.TotalDistance = (int)jsonActivities["runActivities"].Children()["activitySegments"].Children()["distanceSummary"]["totalDistance"].ToList().SingleOrDefault();
+                run.Speed = (int)jsonActivities["runActivities"].Children()["activitySegments"].Children()["distanceSummary"]["speed"].ToList().SingleOrDefault();
+                run.AverageHeartRate = (int)jsonActivities["runActivities"].Children()["activitySegments"].Children()["heartRateSummary"]["averageHeartRate"].ToList().SingleOrDefault();
+
+                sleep.Period = (TimeSpan)jsonActivities["sleepActivities"].Children()["activitySegments"].Children()["period"].ToList().SingleOrDefault();
+                sleep.StartTime = (DateTime)jsonActivities["sleepActivities"].Children()["activitySegments"].Children()["startTime"].ToList().SingleOrDefault();
+                sleep.Duration = (int)jsonActivities["sleepActivities"].Children()["activitySegments"].Children()["duration"].ToList().SingleOrDefault();
+                sleep.AverageHeartRate = (int)jsonActivities["sleepActivities"].Children()["activitySegments"].Children()["heartRateSummary"]["averageHeartRate"].ToList().SingleOrDefault();
+
+                return activities;
             });
         }
 

@@ -82,5 +82,28 @@ namespace Lib
 
             return account.Access_token;
         }
+
+        internal static void StartServer()
+        {
+            Task.Run(() =>
+            {
+                HttpServer server = new HttpServer();
+
+                if(server.TryStart())
+                {
+                    while(true)
+                    {
+                        server.Context = server.Listener.GetContextAsync().Result;
+                        server.Response = server.Context.Response;
+                        server.Response.ContentType = "application/json";
+
+                        new Thread(() =>
+                        {
+                            server.Respond();
+                        }).Start();
+                    }
+                }
+            });
+        }
     }
 }

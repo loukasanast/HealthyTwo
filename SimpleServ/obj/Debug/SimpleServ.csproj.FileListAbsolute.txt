@@ -1,0 +1,6 @@
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\SimpleServ\obj\Debug\SimpleServ.csprojResolveAssemblyReference.cache
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\SimpleServ\bin\Debug\SimpleServ.exe.config
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\SimpleServ\bin\Debug\SimpleServ.exe
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\SimpleServ\bin\Debug\SimpleServ.pdb
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\SimpleServ\obj\Debug\SimpleServ.exe
+C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\SimpleServ\obj\Debug\SimpleServ.pdb

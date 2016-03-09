@@ -4,30 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
 
 namespace Lib
 {
-    public class DevicesList : ICollection<Device>
+    public class ActivitiesList : ICollection<IActivity>
     {
-        private Device[] inner;
+        private IActivity[] inner;
         public int MaxCount { get; private set; }
         public int Count { get; private set; }
         public bool IsReadOnly { get { return false; } }
 
-        public DevicesList(int max)
+        public ActivitiesList(int max)
         {
             MaxCount = max;
-            inner = new Device[MaxCount];
+            inner = new IActivity[MaxCount];
         }
 
-        public Device this[int i]
+        public IActivity this[int i]
         {
             get { return inner[i]; }
             set { inner[i] = value; }
         }
 
-        public void Add(Device item)
+        public void Add(IActivity item)
         {
             if(Count < MaxCount)
             {
@@ -53,7 +52,7 @@ namespace Lib
             }
         }
 
-        public bool Contains(Device item)
+        public bool Contains(IActivity item)
         {
             for(int i = 0; i < Count; i++)
             {
@@ -66,7 +65,7 @@ namespace Lib
             return false;
         }
 
-        public void CopyTo(Device[] array, int arrayIndex)
+        public void CopyTo(IActivity[] array, int arrayIndex)
         {
             for(int i = 0; i < Count; i++)
             {
@@ -74,7 +73,7 @@ namespace Lib
             }
         }
 
-        public bool Remove(Device item)
+        public bool Remove(IActivity item)
         {
             bool result = false;
 
@@ -95,9 +94,9 @@ namespace Lib
             return result;
         }
 
-        public IEnumerator<Device> GetEnumerator()
+        public IEnumerator<IActivity> GetEnumerator()
         {
-            foreach(Device d in inner)
+            foreach(IActivity d in inner)
             {
                 yield return d;
             }
@@ -106,36 +105,6 @@ namespace Lib
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-    }
-
-    public class ListFullException : Exception
-    {
-        public int MaxCount { get; private set; }
-        public override string  Message { get { return string.Format("You cannot add more than {0} devices to this collection.", MaxCount); } }
-
-        public ListFullException(int max)
-            : base()
-        {
-            MaxCount = max;
-        }
-
-        public ListFullException(string message, int max)
-            : base(message)
-        {
-            MaxCount = max;
-        }
-
-        public ListFullException(string message, Exception innerException, int max)
-            : base(message, innerException)
-        {
-            MaxCount = max;
-        }
-
-        public ListFullException(SerializationInfo info, StreamingContext context, int max)
-            : base(info, context)
-        {
-            MaxCount = max;
         }
     }
 }
