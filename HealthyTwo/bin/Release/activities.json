@@ -1,0 +1,914 @@
+﻿{
+  "bikeActivities": [
+    {
+      "activityType": "Unknown",
+      "activitySegments": [
+        {
+          "distanceSummary": {
+            "period": "30.00:00:00.0",
+            "totalDistance": 5258,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 43.5,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "pausedDuration": "string",
+          "heartRateZones": {
+            "underHealthyHeart": 0,
+            "underAerobic": 0,
+            "aerobic": 0,
+            "anaerobic": 0,
+            "fitnessZone": 0,
+            "healthyHeart": 0,
+            "redline": 0,
+            "overRedline": 0
+          },
+          "splitDistance": 0,
+          "segmentId": 0,
+          "startTime": "2016-03-09T02:59:39.851Z",
+          "endTime": "2016-03-09T02:59:39.852Z",
+          "duration": "string",
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 125,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "segmentType": "Unknown"
+        }
+      ],
+      "performanceSummary": {
+        "finishHeartRate": 0,
+        "recoveryHeartRateAt1Minute": 0,
+        "recoveryHeartRateAt2Minutes": 0,
+        "heartRateZones": {
+          "underHealthyHeart": 0,
+          "underAerobic": 0,
+          "aerobic": 0,
+          "anaerobic": 0,
+          "fitnessZone": 0,
+          "healthyHeart": 0,
+          "redline": 0,
+          "overRedline": 0
+        }
+      },
+      "distanceSummary": {
+        "period": "Unknown",
+        "totalDistance": 0,
+        "totalDistanceOnFoot": 0,
+        "actualDistance": 0,
+        "elevationGain": 0,
+        "elevationLoss": 0,
+        "maxElevation": 0,
+        "minElevation": 0,
+        "waypointDistance": 0,
+        "speed": 0,
+        "pace": 0,
+        "overallPace": 0
+      },
+      "pausedDuration": "string",
+      "splitDistance": 0,
+      "mapPoints": [
+        {
+          "secondsSinceStart": 0,
+          "mapPointType": "Unknown",
+          "ordinal": 0,
+          "actualDistance": 0,
+          "totalDistance": 0,
+          "heartRate": 0,
+          "pace": 0,
+          "scaledPace": 0,
+          "speed": 0,
+          "location": {
+            "speedOverGround": 0,
+            "latitude": 0,
+            "longitude": 0,
+            "elevationFromMeanSeaLevel": 0,
+            "estimatedHorizontalError": 0,
+            "estimatedVerticalError": 0
+          },
+          "isPaused": true,
+          "isResume": true
+        }
+      ],
+      "id": "string",
+      "userId": "string",
+      "deviceId": "string",
+      "startTime": "2016-03-09T02:59:39.853Z",
+      "endTime": "2016-03-09T02:59:39.853Z",
+      "dayId": "2016-03-09T02:59:39.853Z",
+      "createdTime": "2016-03-09T02:59:39.853Z",
+      "createdBy": "string",
+      "name": "string",
+      "duration": "string",
+      "minuteSummaries": [
+        {
+          "userId": "string",
+          "startTime": "2016-03-09T02:59:39.854Z",
+          "endTime": "2016-03-09T02:59:39.854Z",
+          "parentDay": "2016-03-09T02:59:39.854Z",
+          "isTransitDay": true,
+          "period": "Unknown",
+          "duration": "string",
+          "stepsTaken": 0,
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 0,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "distanceSummary": {
+            "period": "Unknown",
+            "totalDistance": 0,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 0,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "activeHours": 0,
+          "uvExposure": "string"
+        }
+      ],
+      "caloriesBurnedSummary": {
+        "period": "Unknown",
+        "totalCalories": 0
+      },
+      "heartRateSummary": {
+        "period": "Unknown",
+        "averageHeartRate": 0,
+        "peakHeartRate": 0,
+        "lowestHeartRate": 0
+      },
+      "uvExposure": "string"
+    }
+  ],
+  "freePlayActivities": [
+    {
+      "activityType": "Unknown",
+      "activitySegments": [
+        {
+          "distanceSummary": {
+            "period": "30.00:00:00.0",
+            "totalDistance": 2110,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 15,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "pausedDuration": "string",
+          "heartRateZones": {
+            "underHealthyHeart": 0,
+            "underAerobic": 0,
+            "aerobic": 0,
+            "anaerobic": 0,
+            "fitnessZone": 0,
+            "healthyHeart": 0,
+            "redline": 0,
+            "overRedline": 0
+          },
+          "splitDistance": 0,
+          "segmentId": 0,
+          "startTime": "2016-03-09T02:59:39.857Z",
+          "endTime": "2016-03-09T02:59:39.857Z",
+          "duration": "string",
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 76,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "segmentType": "Unknown"
+        }
+      ],
+      "performanceSummary": {
+        "finishHeartRate": 0,
+        "recoveryHeartRateAt1Minute": 0,
+        "recoveryHeartRateAt2Minutes": 0,
+        "heartRateZones": {
+          "underHealthyHeart": 0,
+          "underAerobic": 0,
+          "aerobic": 0,
+          "anaerobic": 0,
+          "fitnessZone": 0,
+          "healthyHeart": 0,
+          "redline": 0,
+          "overRedline": 0
+        }
+      },
+      "distanceSummary": {
+        "period": "Unknown",
+        "totalDistance": 0,
+        "totalDistanceOnFoot": 0,
+        "actualDistance": 0,
+        "elevationGain": 0,
+        "elevationLoss": 0,
+        "maxElevation": 0,
+        "minElevation": 0,
+        "waypointDistance": 0,
+        "speed": 0,
+        "pace": 0,
+        "overallPace": 0
+      },
+      "pausedDuration": "string",
+      "splitDistance": 0,
+      "mapPoints": [
+        {
+          "secondsSinceStart": 0,
+          "mapPointType": "Unknown",
+          "ordinal": 0,
+          "actualDistance": 0,
+          "totalDistance": 0,
+          "heartRate": 0,
+          "pace": 0,
+          "scaledPace": 0,
+          "speed": 0,
+          "location": {
+            "speedOverGround": 0,
+            "latitude": 0,
+            "longitude": 0,
+            "elevationFromMeanSeaLevel": 0,
+            "estimatedHorizontalError": 0,
+            "estimatedVerticalError": 0
+          },
+          "isPaused": true,
+          "isResume": true
+        }
+      ],
+      "id": "string",
+      "userId": "string",
+      "deviceId": "string",
+      "startTime": "2016-03-09T02:59:39.859Z",
+      "endTime": "2016-03-09T02:59:39.859Z",
+      "dayId": "2016-03-09T02:59:39.859Z",
+      "createdTime": "2016-03-09T02:59:39.859Z",
+      "createdBy": "string",
+      "name": "string",
+      "duration": "string",
+      "minuteSummaries": [
+        {
+          "userId": "string",
+          "startTime": "2016-03-09T02:59:39.859Z",
+          "endTime": "2016-03-09T02:59:39.859Z",
+          "parentDay": "2016-03-09T02:59:39.859Z",
+          "isTransitDay": true,
+          "period": "Unknown",
+          "duration": "string",
+          "stepsTaken": 0,
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 0,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "distanceSummary": {
+            "period": "Unknown",
+            "totalDistance": 0,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 0,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "activeHours": 0,
+          "uvExposure": "string"
+        }
+      ],
+      "caloriesBurnedSummary": {
+        "period": "Unknown",
+        "totalCalories": 0
+      },
+      "heartRateSummary": {
+        "period": "Unknown",
+        "averageHeartRate": 0,
+        "peakHeartRate": 0,
+        "lowestHeartRate": 0
+      },
+      "uvExposure": "string"
+    }
+  ],
+  "golfActivities": [
+    {
+      "activityType": "Unknown",
+      "activitySegments": [
+        {
+          "holeNumber": 12,
+          "stepCount": 0,
+          "period": "30.00:00:00.0",
+          "distanceWalked": 1299,
+          "segmentId": 0,
+          "startTime": "2016-03-09T02:59:39.860Z",
+          "endTime": "2016-03-09T02:59:39.860Z",
+          "duration": "string",
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 73,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "segmentType": "Unknown"
+        }
+      ],
+      "totalStepCount": 0,
+      "totalDistanceWalked": 0,
+      "parOrBetterCount": 0,
+      "longestDriveDistance": 0,
+      "longestStrokeDistance": 0,
+      "childActivities": [
+        {
+          "id": "string",
+          "userId": "string",
+          "deviceId": "string",
+          "startTime": "2016-03-09T02:59:39.860Z",
+          "endTime": "2016-03-09T02:59:39.860Z",
+          "dayId": "2016-03-09T02:59:39.860Z",
+          "createdTime": "2016-03-09T02:59:39.860Z",
+          "createdBy": "string",
+          "activityType": "Unknown",
+          "name": "string",
+          "duration": "string",
+          "minuteSummaries": [
+            {
+              "userId": "string",
+              "startTime": "2016-03-09T02:59:39.860Z",
+              "endTime": "2016-03-09T02:59:39.860Z",
+              "parentDay": "2016-03-09T02:59:39.861Z",
+              "isTransitDay": true,
+              "period": "Unknown",
+              "duration": "string",
+              "stepsTaken": 0,
+              "caloriesBurnedSummary": {
+                "period": "Unknown",
+                "totalCalories": 0
+              },
+              "heartRateSummary": {
+                "period": "Unknown",
+                "averageHeartRate": 0,
+                "peakHeartRate": 0,
+                "lowestHeartRate": 0
+              },
+              "distanceSummary": {
+                "period": "Unknown",
+                "totalDistance": 0,
+                "totalDistanceOnFoot": 0,
+                "actualDistance": 0,
+                "elevationGain": 0,
+                "elevationLoss": 0,
+                "maxElevation": 0,
+                "minElevation": 0,
+                "waypointDistance": 0,
+                "speed": 0,
+                "pace": 0,
+                "overallPace": 0
+              },
+              "activeHours": 0,
+              "uvExposure": "string"
+            }
+          ],
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 0,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "uvExposure": "string"
+        }
+      ],
+      "id": "string",
+      "userId": "string",
+      "deviceId": "string",
+      "startTime": "2016-03-09T02:59:39.862Z",
+      "endTime": "2016-03-09T02:59:39.862Z",
+      "dayId": "2016-03-09T02:59:39.863Z",
+      "createdTime": "2016-03-09T02:59:39.863Z",
+      "createdBy": "string",
+      "name": "string",
+      "duration": "string",
+      "minuteSummaries": [
+        {
+          "userId": "string",
+          "startTime": "2016-03-09T02:59:39.863Z",
+          "endTime": "2016-03-09T02:59:39.863Z",
+          "parentDay": "2016-03-09T02:59:39.863Z",
+          "isTransitDay": true,
+          "period": "Unknown",
+          "duration": "string",
+          "stepsTaken": 0,
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 0,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "distanceSummary": {
+            "period": "Unknown",
+            "totalDistance": 0,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 0,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "activeHours": 0,
+          "uvExposure": "string"
+        }
+      ],
+      "caloriesBurnedSummary": {
+        "period": "Unknown",
+        "totalCalories": 0
+      },
+      "heartRateSummary": {
+        "period": "Unknown",
+        "averageHeartRate": 0,
+        "peakHeartRate": 0,
+        "lowestHeartRate": 0
+      },
+      "uvExposure": "string"
+    }
+  ],
+  "guidedWorkoutActivities": [
+    {
+      "activityType": "Unknown",
+      "activitySegments": [
+        {
+          "circuitOrdinal": 0,
+          "circuitType": 0,
+          "distanceSummary": {
+            "period": "30.00:00:00.0",
+            "totalDistance": 10,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 5,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "pausedDuration": "string",
+          "heartRateZones": {
+            "underHealthyHeart": 0,
+            "underAerobic": 0,
+            "aerobic": 0,
+            "anaerobic": 0,
+            "fitnessZone": 0,
+            "healthyHeart": 0,
+            "redline": 0,
+            "overRedline": 0
+          },
+          "splitDistance": 0,
+          "segmentId": 0,
+          "startTime": "2016-03-09T02:59:39.863Z",
+          "endTime": "2016-03-09T02:59:39.863Z",
+          "duration": "string",
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 71,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "segmentType": "Unknown"
+        }
+      ],
+      "roundsPerformed": 0,
+      "repetitionsPerformed": 0,
+      "workoutPlanId": "string",
+      "performanceSummary": {
+        "finishHeartRate": 0,
+        "recoveryHeartRateAt1Minute": 0,
+        "recoveryHeartRateAt2Minutes": 0,
+        "heartRateZones": {
+          "underHealthyHeart": 0,
+          "underAerobic": 0,
+          "aerobic": 0,
+          "anaerobic": 0,
+          "fitnessZone": 0,
+          "healthyHeart": 0,
+          "redline": 0,
+          "overRedline": 0
+        }
+      },
+      "distanceSummary": {
+        "period": "Unknown",
+        "totalDistance": 0,
+        "totalDistanceOnFoot": 0,
+        "actualDistance": 0,
+        "elevationGain": 0,
+        "elevationLoss": 0,
+        "maxElevation": 0,
+        "minElevation": 0,
+        "waypointDistance": 0,
+        "speed": 0,
+        "pace": 0,
+        "overallPace": 0
+      },
+      "pausedDuration": "string",
+      "splitDistance": 0,
+      "mapPoints": [
+        {
+          "secondsSinceStart": 0,
+          "mapPointType": "Unknown",
+          "ordinal": 0,
+          "actualDistance": 0,
+          "totalDistance": 0,
+          "heartRate": 0,
+          "pace": 0,
+          "scaledPace": 0,
+          "speed": 0,
+          "location": {
+            "speedOverGround": 0,
+            "latitude": 0,
+            "longitude": 0,
+            "elevationFromMeanSeaLevel": 0,
+            "estimatedHorizontalError": 0,
+            "estimatedVerticalError": 0
+          },
+          "isPaused": true,
+          "isResume": true
+        }
+      ],
+      "id": "string",
+      "userId": "string",
+      "deviceId": "string",
+      "startTime": "2016-03-09T02:59:39.865Z",
+      "endTime": "2016-03-09T02:59:39.865Z",
+      "dayId": "2016-03-09T02:59:39.865Z",
+      "createdTime": "2016-03-09T02:59:39.865Z",
+      "createdBy": "string",
+      "name": "string",
+      "duration": "string",
+      "minuteSummaries": [
+        {
+          "userId": "string",
+          "startTime": "2016-03-09T02:59:39.865Z",
+          "endTime": "2016-03-09T02:59:39.865Z",
+          "parentDay": "2016-03-09T02:59:39.865Z",
+          "isTransitDay": true,
+          "period": "Unknown",
+          "duration": "string",
+          "stepsTaken": 0,
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 0,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "distanceSummary": {
+            "period": "Unknown",
+            "totalDistance": 0,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 0,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "activeHours": 0,
+          "uvExposure": "string"
+        }
+      ],
+      "caloriesBurnedSummary": {
+        "period": "Unknown",
+        "totalCalories": 0
+      },
+      "heartRateSummary": {
+        "period": "Unknown",
+        "averageHeartRate": 0,
+        "peakHeartRate": 0,
+        "lowestHeartRate": 0
+      },
+      "uvExposure": "string"
+    }
+  ],
+  "runActivities": [
+    {
+      "activityType": "Unknown",
+      "activitySegments": [
+        {
+          "distanceSummary": {
+            "period": "30.00:00:00.0",
+            "totalDistance": 54,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 7,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "pausedDuration": "string",
+          "heartRateZones": {
+            "underHealthyHeart": 0,
+            "underAerobic": 0,
+            "aerobic": 0,
+            "anaerobic": 0,
+            "fitnessZone": 0,
+            "healthyHeart": 0,
+            "redline": 0,
+            "overRedline": 0
+          },
+          "splitDistance": 0,
+          "segmentId": 0,
+          "startTime": "2016-03-09T02:59:39.866Z",
+          "endTime": "2016-03-09T02:59:39.866Z",
+          "duration": "string",
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 134,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "segmentType": "Unknown"
+        }
+      ],
+      "performanceSummary": {
+        "finishHeartRate": 0,
+        "recoveryHeartRateAt1Minute": 0,
+        "recoveryHeartRateAt2Minutes": 0,
+        "heartRateZones": {
+          "underHealthyHeart": 0,
+          "underAerobic": 0,
+          "aerobic": 0,
+          "anaerobic": 0,
+          "fitnessZone": 0,
+          "healthyHeart": 0,
+          "redline": 0,
+          "overRedline": 0
+        }
+      },
+      "distanceSummary": {
+        "period": "Unknown",
+        "totalDistance": 0,
+        "totalDistanceOnFoot": 0,
+        "actualDistance": 0,
+        "elevationGain": 0,
+        "elevationLoss": 0,
+        "maxElevation": 0,
+        "minElevation": 0,
+        "waypointDistance": 0,
+        "speed": 0,
+        "pace": 0,
+        "overallPace": 0
+      },
+      "pausedDuration": "string",
+      "splitDistance": 0,
+      "mapPoints": [
+        {
+          "secondsSinceStart": 0,
+          "mapPointType": "Unknown",
+          "ordinal": 0,
+          "actualDistance": 0,
+          "totalDistance": 0,
+          "heartRate": 0,
+          "pace": 0,
+          "scaledPace": 0,
+          "speed": 0,
+          "location": {
+            "speedOverGround": 0,
+            "latitude": 0,
+            "longitude": 0,
+            "elevationFromMeanSeaLevel": 0,
+            "estimatedHorizontalError": 0,
+            "estimatedVerticalError": 0
+          },
+          "isPaused": true,
+          "isResume": true
+        }
+      ],
+      "id": "string",
+      "userId": "string",
+      "deviceId": "string",
+      "startTime": "2016-03-09T02:59:39.866Z",
+      "endTime": "2016-03-09T02:59:39.866Z",
+      "dayId": "2016-03-09T02:59:39.866Z",
+      "createdTime": "2016-03-09T02:59:39.866Z",
+      "createdBy": "string",
+      "name": "string",
+      "duration": "string",
+      "minuteSummaries": [
+        {
+          "userId": "string",
+          "startTime": "2016-03-09T02:59:39.867Z",
+          "endTime": "2016-03-09T02:59:39.867Z",
+          "parentDay": "2016-03-09T02:59:39.867Z",
+          "isTransitDay": true,
+          "period": "Unknown",
+          "duration": "string",
+          "stepsTaken": 0,
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 0,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "distanceSummary": {
+            "period": "Unknown",
+            "totalDistance": 0,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 0,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "activeHours": 0,
+          "uvExposure": "string"
+        }
+      ],
+      "caloriesBurnedSummary": {
+        "period": "Unknown",
+        "totalCalories": 0
+      },
+      "heartRateSummary": {
+        "period": "Unknown",
+        "averageHeartRate": 0,
+        "peakHeartRate": 0,
+        "lowestHeartRate": 0
+      },
+      "uvExposure": "string"
+    }
+  ],
+  "sleepActivities": [
+    {
+      "activityType": "Unknown",
+      "activitySegments": [
+        {
+          "sleepTime": 0,
+          "dayId": "2016-03-09T02:59:39.867Z",
+          "sleepType": "Unknown",
+          "period": "30.00:00:00.0",
+          "segmentId": 0,
+          "startTime": "2016-03-09T23:59:39.867Z",
+          "endTime": "2016-03-09T02:59:39.867Z",
+          "duration": 8,
+          "heartRateSummary": {
+            "period": "30.00:00:00.0",
+            "averageHeartRate": 74,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "segmentType": "Unknown"
+        }
+      ],
+      "awakeDuration": "string",
+      "sleepDuration": "string",
+      "numberOfWakeups": 0,
+      "fallAsleepDuration": "string",
+      "sleepEfficiencyPercentage": 0,
+      "totalRestlessSleepDuration": "string",
+      "totalRestfulSleepDuration": "string",
+      "restingHeartRate": 0,
+      "fallAsleepTime": "2016-03-09T02:59:39.867Z",
+      "wakeupTime": "2016-03-09T02:59:39.867Z",
+      "id": "string",
+      "userId": "string",
+      "deviceId": "string",
+      "startTime": "2016-03-09T02:59:39.868Z",
+      "endTime": "2016-03-09T02:59:39.868Z",
+      "dayId": "2016-03-09T02:59:39.868Z",
+      "createdTime": "2016-03-09T02:59:39.868Z",
+      "createdBy": "string",
+      "name": "string",
+      "duration": "string",
+      "minuteSummaries": [
+        {
+          "userId": "string",
+          "startTime": "2016-03-09T02:59:39.868Z",
+          "endTime": "2016-03-09T02:59:39.868Z",
+          "parentDay": "2016-03-09T02:59:39.868Z",
+          "isTransitDay": true,
+          "period": "Unknown",
+          "duration": "string",
+          "stepsTaken": 0,
+          "caloriesBurnedSummary": {
+            "period": "Unknown",
+            "totalCalories": 0
+          },
+          "heartRateSummary": {
+            "period": "Unknown",
+            "averageHeartRate": 0,
+            "peakHeartRate": 0,
+            "lowestHeartRate": 0
+          },
+          "distanceSummary": {
+            "period": "Unknown",
+            "totalDistance": 0,
+            "totalDistanceOnFoot": 0,
+            "actualDistance": 0,
+            "elevationGain": 0,
+            "elevationLoss": 0,
+            "maxElevation": 0,
+            "minElevation": 0,
+            "waypointDistance": 0,
+            "speed": 0,
+            "pace": 0,
+            "overallPace": 0
+          },
+          "activeHours": 0,
+          "uvExposure": "string"
+        }
+      ],
+      "caloriesBurnedSummary": {
+        "period": "Unknown",
+        "totalCalories": 0
+      },
+      "heartRateSummary": {
+        "period": "Unknown",
+        "averageHeartRate": 0,
+        "peakHeartRate": 0,
+        "lowestHeartRate": 0
+      },
+      "uvExposure": "string"
+    }
+  ],
+  "nextPage": "string",
+  "itemCount": 0
+}

@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Summaries.cs" />
     <Compile Include="ActivitiesList.cs" />
     <Compile Include="FreePlayActivity.cs" />
     <Compile Include="GolfActivity.cs" />

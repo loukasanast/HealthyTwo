@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -198,6 +199,9 @@
       <DependentUpon>Database.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="img\sync-dark.png" />
+    <Resource Include="img\clock-dark.png" />
+    <Resource Include="img\anchor-dark.png" />
     <Resource Include="img\window.png" />
     <Resource Include="img\sync.png" />
     <Resource Include="img\sun.png" />

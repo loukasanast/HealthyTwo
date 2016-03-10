@@ -22,8 +22,24 @@ namespace Lib
 
         public IActivity this[int i]
         {
-            get { return inner[i]; }
-            set { inner[i] = value; }
+            get
+            {
+                if(i > Count - 1)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+
+                return inner[i];
+            }
+            set
+            {
+                if(i > MaxCount - 1)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+
+                inner[i] = value;
+            }
         }
 
         public void Add(IActivity item)

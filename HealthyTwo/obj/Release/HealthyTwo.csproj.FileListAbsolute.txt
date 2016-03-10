@@ -14,3 +14,13 @@ C:\Users\Lucas\Documents\Visual Studio 2015\Projects\HealthyTwo\HealthyTwo\obj\R
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Lib.dll
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Lib.pdb
 C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo.csprojResolveAssemblyReference.cache
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Database.mdf
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Database_log.ldf
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\App.config
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Nito.AsyncEx.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Newtonsoft.Json.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Nito.AsyncEx.Enlightenment.dll
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Nito.AsyncEx.xml
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Newtonsoft.Json.xml
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\bin\Release\Nito.AsyncEx.Enlightenment.xml
+C:\Users\Lucas\documents\visual studio 2015\Projects\HealthyTwo\HealthyTwo\obj\Release\HealthyTwo_Content.g.cs

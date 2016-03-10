@@ -36,6 +36,7 @@ namespace HealthyTwo
             vm.Activities = new ActivitiesList(6);
             vm.Devices = new DevicesList(3);
             vm.Profile = new Profile();
+            vm.Summaries = new Summaries();
 
             InitializeComponent();
         }
@@ -71,32 +72,58 @@ namespace HealthyTwo
             {
                 for(int i = 0; i < grdActivities.Children.OfType<Grid>().Count(); i++)
                 {
-                    grdActivities.Children.RemoveRange(1, 24);
+                    grdActivities.Children.RemoveRange(1, 30);
                     break;
                 }
+
+                imgAddDev.MouseDown -= imgAddDev_MouseDown;
+                imgAddDev.MouseDown += imgAddDev_MouseDown;
 
                 vm.Activities = await Repository.GetActivitiesAsync();
                 PropertyInfo[] pInfoArr = typeof(IActivity).GetProperties();
                 object[] toAdd = new object[2];
-                Label lblDevDisplayName;
+                Label lblRedTitle;
                 string[] titles = { "Bike", "Free Play", "Golf", "Guided Workout", "Run", "Sleep" };
 
                 for(int i = 0; i < vm.Activities.Count; i++)
                 {
                     Grid grdAct = new Grid();
 
-                    lblDevDisplayName = new Label();
-                    lblDevDisplayName.Content = titles[i].ToUpper();
-                    lblDevDisplayName.HorizontalAlignment = HorizontalAlignment.Left;
-                    lblDevDisplayName.Margin = new Thickness(283 + ((i < 3 ? i : i - 3) * 168), 97 + ((i < 3 ? 0 : 1) * 172), 0, 0);
-                    lblDevDisplayName.VerticalAlignment = VerticalAlignment.Top;
-                    lblDevDisplayName.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
-                    lblDevDisplayName.FontFamily = new FontFamily("Aller Display");
-                    lblDevDisplayName.FontSize = 11;
-                    grdActivities.Children.Add(lblDevDisplayName);
+                    lblRedTitle = new Label();
+                    lblRedTitle.Content = titles[i].ToUpper();
+                    lblRedTitle.HorizontalAlignment = HorizontalAlignment.Left;
+                    lblRedTitle.Margin = new Thickness(283 + ((i < 3 ? i : i - 3) * 168), 97 + ((i < 3 ? 0 : 1) * 172), 0, 0);
+                    lblRedTitle.VerticalAlignment = VerticalAlignment.Top;
+                    lblRedTitle.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
+                    lblRedTitle.FontFamily = new FontFamily("Aller Display");
+                    lblRedTitle.FontSize = 11;
+                    grdActivities.Children.Add(lblRedTitle);
 
                     AddImg(grdActivities, "top-corner.png", 8, 8, new Thickness(264 + ((i < 3 ? i : i - 3) * 168), 80 + (i > 2 ? 172 : 0), 528 - ((i < 3 ? i : i - 3) * 168), 378 - (i > 2 ? 172 : 0)));
                     AddImg(grdActivities, "bottom-corner.png", 8, 8, new Thickness(425 + ((i < 3 ? i : i - 3) * 168), 245 + (i > 2 ? 172 : 0), 367 - ((i < 3 ? i : i - 3) * 168), 213 - (i > 2 ? 172 : 0)));
+                    Image hyperlink;
+                    (hyperlink = AddImg(grdActivities, "hyperlink.png", 8, 8, new Thickness(408 + ((i < 3 ? i : i - 3) * 168), 104 + (i > 2 ? 172 : 0), 384 - ((i < 3 ? i : i - 3) * 168), 354 - (i > 2 ? 172 : 0)))).MouseDown += (s, eArgs) => {
+                        switch(titles[grdActivities.Children.IndexOf(((Image)s)) / 5])
+                        {
+                            case "Bike": Process.Start(string.Format("https://dashboard.microsofthealth.com/#/{0}/{1}-{2}-{3}/month/chart", "bike", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day));
+                                break;
+                            case "Free Play":
+                                Process.Start(string.Format("https://dashboard.microsofthealth.com/#/{0}/{1}-{2}-{3}/month/chart", "exercise", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day));
+                                break;
+                            case "Golf":
+                                Process.Start(string.Format("https://dashboard.microsofthealth.com/#/{0}/{1}-{2}-{3}/month/chart", "golf", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day));
+                                break;
+                            case "Guided Workout":
+                                Process.Start(string.Format("https://dashboard.microsofthealth.com/#/{0}/{1}-{2}-{3}/month/chart", "guided", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day));
+                                break;
+                            case "Run":
+                                Process.Start(string.Format("https://dashboard.microsofthealth.com/#/{0}/{1}-{2}-{3}/month/chart", "run", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day));
+                                break;
+                            case "Sleep":
+                                Process.Start(string.Format("https://dashboard.microsofthealth.com/#/{0}/{1}-{2}-{3}/month/chart", "sleep", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day));
+                                break;
+                        }
+                    };
 
                     for(int j = 0; j < pInfoArr.Length - 3; j++)
                     {
@@ -127,7 +154,7 @@ namespace HealthyTwo
             {
                 vm.Devices = await Repository.GetDevicesAsync();
 
-                Label lblDevDisplayName = null;
+                Label lblRedTitle = null;
                 string[] titles = { "Id", "", "Sync", "Family", "Hardware", "Software", "Model", "Manufact.", "Status", "Created" };
                 string[] fileNames = { "mobile.png", "sync.png", "house.png", "gear.png", "window.png", "computer.png", "suitcase.png", "sun.png", "globe.png" };
                 object[] toAdd = new object[2];
@@ -147,15 +174,15 @@ namespace HealthyTwo
                     grdDev.Opacity = (i % 2 == 0 ? 1 : .4);
                     grdDevices.Children.Add(grdDev);
 
-                    lblDevDisplayName = new Label();
-                    lblDevDisplayName.Content = vm.Devices[i].DisplayName.ToUpper();
-                    lblDevDisplayName.HorizontalAlignment = HorizontalAlignment.Left;
-                    lblDevDisplayName.Margin = new Thickness(283 + i * 168, 97, 0, 0);
-                    lblDevDisplayName.VerticalAlignment = VerticalAlignment.Top;
-                    lblDevDisplayName.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
-                    lblDevDisplayName.FontFamily = new FontFamily("Aller Display");
-                    lblDevDisplayName.FontSize = 11;
-                    grdDevices.Children.Add(lblDevDisplayName);
+                    lblRedTitle = new Label();
+                    lblRedTitle.Content = vm.Devices[i].DisplayName.ToUpper();
+                    lblRedTitle.HorizontalAlignment = HorizontalAlignment.Left;
+                    lblRedTitle.Margin = new Thickness(283 + i * 168, 97, 0, 0);
+                    lblRedTitle.VerticalAlignment = VerticalAlignment.Top;
+                    lblRedTitle.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
+                    lblRedTitle.FontFamily = new FontFamily("Aller Display");
+                    lblRedTitle.FontSize = 11;
+                    grdDevices.Children.Add(lblRedTitle);
 
                     for(int j = 0; j < typeof(Device).GetProperties().Length; j++)
                     {
@@ -191,10 +218,100 @@ namespace HealthyTwo
             }
         }
 
-        private void lblSum_MouseDown(object sender, MouseButtonEventArgs e)
+        private async void lblSum_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(grdSummaries.Opacity == 0)
             {
+                grdSummaries.Children.RemoveRange(4, grdSummaries.Children.Count - 5);
+
+                vm.Summaries = await Repository.GetSummariesAsync();
+                PropertyInfo[] pInfoArr = typeof(IActivity).GetProperties();
+                object[] toAdd = new object[2];
+                string[] fileNames = { "clock-dark.png", "sync-dark.png", "anchor-dark.png", "alarm-dark.png" };
+
+                AddImg(grdSummaries, "top-corner.png", 8, 8, new Thickness(264, 80 + 172, 528, 378 - 172));
+                AddImg(grdSummaries, "bottom-corner.png", 8, 8, new Thickness(425 + (2 * 168), 417, 367 - (2 * 168), 41));
+                AddImg(grdSummaries, "top-corner.png", 8, 8, new Thickness(264, 80, 528, 378));
+                AddImg(grdSummaries, "bottom-corner.png", 8, 8, new Thickness(425 + (2 * 168), 417 - 172, 367 - (2 * 168), 41 + 172));
+                Image hyperlink;
+
+                (hyperlink = AddImg(grdSummaries, "hyperlink.png", 8, 8, new Thickness(408 + (2 * 168), 104, 384 - (2 * 168), 354))).MouseDown += (s, eArgs) => {
+                    Process.Start("https://dashboard.microsofthealth.com/#/compare/");
+                };
+
+                Label lblRedTitle = new Label();
+                lblRedTitle.Content = "Summaries".ToUpper();
+                lblRedTitle.HorizontalAlignment = HorizontalAlignment.Left;
+                lblRedTitle.Margin = new Thickness(283, 97, 0, 0);
+                lblRedTitle.VerticalAlignment = VerticalAlignment.Top;
+                lblRedTitle.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
+                lblRedTitle.FontFamily = new FontFamily("Aller Display");
+                lblRedTitle.FontSize = 11;
+                grdSummaries.Children.Add(lblRedTitle);
+
+                for(int i = 0; i < pInfoArr.Length - 3; i++)
+                {
+                    string key = pInfoArr[i].Name;
+                    string value = pInfoArr[i].GetValue(vm.Summaries).ToString() ?? "null";
+
+                    AddImg(grdSummaries, fileNames[i], 8, 8, new Thickness(520, 126 + i * 32, 272, 328 - i * 32));
+
+                    switch(key)
+                    {
+                        case "Period":
+                            value = (DateTime.Now - TimeSpan.Parse(value)).ToString("y");
+                            break;
+                        case "TotalDistance":
+                            value = string.Format("{0} m", value);
+                            key = "Distance";
+                            break;
+                        case "Speed":
+                            value = string.Format("{0} Km/h", value);
+                            break;
+                        case "AverageHeartRate":
+                            value = string.Format("{0} per m", value);
+                            key = "Heart Rate";
+                            break;
+                        case "HoleNumber":
+                            key = "Hole Nr.";
+                            break;
+                        case "Duration":
+                            value = string.Format("{0} h", value);
+                            break;
+                        case "StartTime":
+                            value = DateTime.Parse(value).ToString("t");
+                            key = "Time";
+                            break;
+                    }
+
+                    Label lbl = new Label();
+                    lbl.Content = key;
+                    lbl.HorizontalAlignment = HorizontalAlignment.Left;
+                    lbl.Margin = new Thickness(283, 123 + i * 32, 0, 0);
+                    lbl.VerticalAlignment = VerticalAlignment.Top;
+                    lbl.Foreground = new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
+                    lbl.FontFamily = new FontFamily("Nobile");
+                    lbl.FontSize = 10;
+                    toAdd[0] = lbl;
+
+                    TextBlock tbk = new TextBlock();
+                    tbk.Text = value;
+                    tbk.HorizontalAlignment = HorizontalAlignment.Left;
+                    tbk.Margin = new Thickness(316 + 2 * 168, 128 + i * 32, 0, 0);
+                    tbk.VerticalAlignment = VerticalAlignment.Top;
+                    tbk.Foreground = new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
+                    tbk.FontFamily = new FontFamily("Nobile");
+                    tbk.FontSize = 10;
+                    tbk.Width = 100;
+                    tbk.TextAlignment = TextAlignment.Right;
+                    toAdd[1] = tbk;
+
+                    grdSummaries.Children.Add((Label)toAdd[0]);
+                    grdSummaries.Children.Add((TextBlock)toAdd[1]);
+                }
+
+                DrawGraph();
+
                 PageFadeIn(grdSummaries);
             }
         }
@@ -303,20 +420,20 @@ namespace HealthyTwo
 
                         vm.Devices = await Repository.GetDevicesAsync();
 
-                        Label lblDevDisplayName = null;
+                        Label lblRedTitle = null;
                         string[] fileNames = { "mobile.png", "sync.png", "house.png", "gear.png", "window.png", "computer.png", "suitcase.png", "sun.png", "globe.png" };
                         PropertyInfo[] pInfoArr = typeof(Device).GetProperties();
                         int k = vm.Devices.Count - 1;
 
-                        lblDevDisplayName = new Label();
-                        lblDevDisplayName.Content = vm.Devices[k].DisplayName.ToUpper();
-                        lblDevDisplayName.HorizontalAlignment = HorizontalAlignment.Left;
-                        lblDevDisplayName.Margin = new Thickness(283 + k * 168, 97, 0, 0);
-                        lblDevDisplayName.VerticalAlignment = VerticalAlignment.Top;
-                        lblDevDisplayName.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
-                        lblDevDisplayName.FontFamily = new FontFamily("Aller Display");
-                        lblDevDisplayName.FontSize = 11;
-                        grdDevices.Children.Add(lblDevDisplayName);
+                        lblRedTitle = new Label();
+                        lblRedTitle.Content = vm.Devices[k].DisplayName.ToUpper();
+                        lblRedTitle.HorizontalAlignment = HorizontalAlignment.Left;
+                        lblRedTitle.Margin = new Thickness(283 + k * 168, 97, 0, 0);
+                        lblRedTitle.VerticalAlignment = VerticalAlignment.Top;
+                        lblRedTitle.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
+                        lblRedTitle.FontFamily = new FontFamily("Aller Display");
+                        lblRedTitle.FontSize = 11;
+                        grdDevices.Children.Add(lblRedTitle);
 
                         for(int j = 0; j < typeof(Device).GetProperties().Length; j++)
                         {
@@ -407,7 +524,7 @@ namespace HealthyTwo
             TextBlock tbk = new TextBlock();
             tbk.Text = value;
             tbk.HorizontalAlignment = HorizontalAlignment.Left;
-            tbk.Margin = new Thickness(311 + col * 168, 128 + row * 32 + (r * 172), 0, 0);
+            tbk.Margin = new Thickness(316 + col * 168, 128 + row * 32 + (r * 172), 0, 0);
             tbk.VerticalAlignment = VerticalAlignment.Top;
             tbk.Foreground = new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
             tbk.FontFamily = new FontFamily("Nobile");
@@ -436,7 +553,7 @@ namespace HealthyTwo
             TextBlock tbk = new TextBlock();
             tbk.Text = value;
             tbk.HorizontalAlignment = HorizontalAlignment.Left;
-            tbk.Margin = new Thickness(311 + col * 168, 128 + row * 32, 0, 0);
+            tbk.Margin = new Thickness(316 + col * 168, 128 + row * 32, 0, 0);
             tbk.VerticalAlignment = VerticalAlignment.Top;
             tbk.Foreground = new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
             tbk.FontFamily = new FontFamily("Nobile");
@@ -464,7 +581,7 @@ namespace HealthyTwo
 
             TextBox txt = new TextBox();
             txt.HorizontalAlignment = HorizontalAlignment.Left;
-            txt.Margin = new Thickness(341 + col * 168, 124 + row * 32, 0, 0);
+            txt.Margin = new Thickness(346 + col * 168, 124 + row * 32, 0, 0);
             txt.VerticalAlignment = VerticalAlignment.Top;
             txt.Foreground = new SolidColorBrush(new Color() { R = 255, G = 255, B = 255, A = 255 });
             txt.Background = new SolidColorBrush(new Color() { R = 0, G = 0, B = 0, A = 255 });
@@ -539,6 +656,71 @@ namespace HealthyTwo
             else
             {
                 return true;
+            }
+        }
+
+        private void DrawGraph()
+        {
+            cnvVisual.Children.Clear();
+
+            Label lblRedTitle = new Label();
+            lblRedTitle.Content = "This Month".ToUpper();
+            lblRedTitle.HorizontalAlignment = HorizontalAlignment.Left;
+            lblRedTitle.Margin = new Thickness(283, 97 + 172, 0, 0);
+            lblRedTitle.VerticalAlignment = VerticalAlignment.Top;
+            lblRedTitle.Foreground = new SolidColorBrush(new Color() { R = 255, G = 25, B = 43, A = 255 });
+            lblRedTitle.FontFamily = new FontFamily("Aller Display");
+            lblRedTitle.FontSize = 11;
+            grdSummaries.Children.Add(lblRedTitle);
+
+            SolidColorBrush yellow = new SolidColorBrush();
+            yellow.Color = new Color() { R = 254, G = 255, B = 130, A = 255 };
+
+            SolidColorBrush blue = new SolidColorBrush();
+            blue.Color = new Color() { R = 0, G = 166, B = 255, A = 255 };
+
+            int tempX = 0;
+            int tempY = 120;
+
+            for(int i = 0; i < 32; i++)
+            {
+                Thread.Sleep(10);
+
+                System.Windows.Shapes.Line yellowLine = new System.Windows.Shapes.Line();
+                yellowLine.X1 = tempX;
+                yellowLine.Y1 = tempY;
+                yellowLine.X2 = tempX + new Random().Next(40);
+                yellowLine.Y2 = 120 - new Random().Next(40);
+
+                yellowLine.StrokeThickness = 1;
+                yellowLine.Stroke = yellow;
+
+                cnvVisual.Children.Add(yellowLine);
+
+                tempX = (int)yellowLine.X2;
+                tempY = (int)yellowLine.Y2;
+            }
+
+            tempX = 0;
+            tempY = 120;
+
+            for(int i = 0; i < 32; i++)
+            {
+                Thread.Sleep(10);
+
+                System.Windows.Shapes.Line blueLine = new System.Windows.Shapes.Line();
+                blueLine.X1 = tempX;
+                blueLine.Y1 = tempY;
+                blueLine.X2 = tempX + new Random().Next(56);
+                blueLine.Y2 = 120 - new Random().Next(56);
+
+                blueLine.StrokeThickness = 1;
+                blueLine.Stroke = blue;
+
+                cnvVisual.Children.Add(blueLine);
+
+                tempX = (int)blueLine.X2;
+                tempY = (int)blueLine.Y2;
             }
         }
     }

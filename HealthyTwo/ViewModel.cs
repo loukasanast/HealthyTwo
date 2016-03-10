@@ -13,6 +13,7 @@ namespace HealthyTwo
         public Profile Profile { get; set; }
         public DevicesList Devices { get; set; }
         public ActivitiesList Activities { get; set; }
+        public Summaries Summaries { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
