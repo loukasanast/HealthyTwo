@@ -73,9 +73,9 @@
         <Image x:Name="imgHomeHover" Source="img/home-hover.png" Width="16" Height="16" Margin="16,28,768,422"  />
         <Image x:Name="imgHome" Source="img/home.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="16,28,768,422" MouseDown="imgHome_MouseDown" />
         <Image x:Name="imgMessageHover" Source="img/message-hover.png" Width="16" Height="16" Margin="40,28,744,422" />
-        <Image x:Name="imgMessage" Source="img/message.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="40,28,744,422" />
+        <Image x:Name="imgMessage" Source="img/message.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="40,28,744,422" MouseDown="imgMessage_MouseDown" />
         <Image x:Name="imgEmailHover" Source="img/email-hover.png" Width="16" Height="16" Margin="64,28,720,422" />
-        <Image x:Name="imgEmail" Source="img/email.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="64,28,720,422" />
+        <Image x:Name="imgEmail" Source="img/email.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="64,28,720,422" MouseDown="imgEmail_MouseDown" />
         <Image x:Name="imgInstagramHover" Source="img/instagram-hover.png" Width="16" Height="16" Margin="32,432,752,18" />
         <Image x:Name="imgInstagram" Source="img/instagram.png" Style="{StaticResource ImgFadeOut}" Width="16" Height="16" Margin="32,432,752,18" MouseDown="imgInstagram_MouseDown" />
         <Image x:Name="imgFacebookHover" Source="img/facebook-hover.png" Width="16" Height="16" Margin="56,432,728,18" />

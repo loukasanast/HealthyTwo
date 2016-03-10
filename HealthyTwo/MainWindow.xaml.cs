@@ -70,7 +70,7 @@ namespace HealthyTwo
         {
             if(grdActivities.Opacity == 0)
             {
-                for(int i = 0; i < grdActivities.Children.OfType<Grid>().Count(); i++)
+                for(int i = 0; i < grdActivities.Children.OfType<Grid>().Count();)
                 {
                     grdActivities.Children.RemoveRange(1, 30);
                     break;
@@ -722,6 +722,20 @@ namespace HealthyTwo
                 tempX = (int)blueLine.X2;
                 tempY = (int)blueLine.Y2;
             }
+        }
+
+        private void imgEmail_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start(@"mailto:me@anastasiou.email");
+        }
+
+        private void imgMessage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show(@"
+            About: Health data manipulation and review App
+            Engineer: Loukas Anastasiou
+            Designer: Loukas Anastasiou
+            Contact: me@anastasiou.email", "About Healthy Two", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
